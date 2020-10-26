@@ -15,6 +15,7 @@
 		DB8767A42542F6B80064B3FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8767A22542F6B80064B3FF /* LaunchScreen.storyboard */; };
 		DB8767AF2542F6B80064B3FF /* Tripper_iOS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767AE2542F6B80064B3FF /* Tripper_iOS_AppTests.swift */; };
 		DB8767BA2542F6B80064B3FF /* Tripper_iOS_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767B92542F6B80064B3FF /* Tripper_iOS_AppUITests.swift */; };
+		DB8768112543DD610064B3FF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8768102543DD610064B3FF /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DB8767B52542F6B80064B3FF /* Tripper_iOS_AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tripper_iOS_AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8767B92542F6B80064B3FF /* Tripper_iOS_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tripper_iOS_AppUITests.swift; sourceTree = "<group>"; };
 		DB8767BB2542F6B80064B3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB8768102543DD610064B3FF /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,11 @@
 			children = (
 				DB8767972542F6B50064B3FF /* AppDelegate.swift */,
 				DB8767992542F6B50064B3FF /* SceneDelegate.swift */,
-				DB87679B2542F6B50064B3FF /* ViewController.swift */,
 				DB87679D2542F6B50064B3FF /* Main.storyboard */,
+				DB87680E2543DD080064B3FF /* Model */,
+				DB8768092543DC990064B3FF /* View Controllers */,
+				DB87680D2543DCE20064B3FF /* Views (example cell file) */,
+				DB87680F2543DD1C0064B3FF /* Other Controllers (Common file) */,
 				DB8767A02542F6B80064B3FF /* Assets.xcassets */,
 				DB8767A22542F6B80064B3FF /* LaunchScreen.storyboard */,
 				DB8767A52542F6B80064B3FF /* Info.plist */,
@@ -126,6 +131,36 @@
 				DB8767BB2542F6B80064B3FF /* Info.plist */,
 			);
 			path = Tripper_iOS_AppUITests;
+			sourceTree = "<group>";
+		};
+		DB8768092543DC990064B3FF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB87679B2542F6B50064B3FF /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		DB87680D2543DCE20064B3FF /* Views (example cell file) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Views (example cell file)";
+			sourceTree = "<group>";
+		};
+		DB87680E2543DD080064B3FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB87680F2543DD1C0064B3FF /* Other Controllers (Common file) */ = {
+			isa = PBXGroup;
+			children = (
+				DB8768102543DD610064B3FF /* NetworkController.swift */,
+			);
+			path = "Other Controllers (Common file)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8768112543DD610064B3FF /* NetworkController.swift in Sources */,
 				DB87679C2542F6B50064B3FF /* ViewController.swift in Sources */,
 				DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */,
 				DB87679A2542F6B50064B3FF /* SceneDelegate.swift in Sources */,
