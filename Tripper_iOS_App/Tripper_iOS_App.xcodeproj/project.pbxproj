@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB235726254BBFD700E23B05 /* ManagerLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */; };
+		DB23572B254BBFFB00E23B05 /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23572A254BBFFB00E23B05 /* Location.storyboard */; };
+		DB235730254BC03A00E23B05 /* StaffManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23572F254BC03A00E23B05 /* StaffManage.storyboard */; };
 		DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767972542F6B50064B3FF /* AppDelegate.swift */; };
 		DB87679A2542F6B50064B3FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767992542F6B50064B3FF /* SceneDelegate.swift */; };
 		DB87679C2542F6B50064B3FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87679B2542F6B50064B3FF /* ViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerLogin.storyboard; sourceTree = "<group>"; };
+		DB23572A254BBFFB00E23B05 /* Location.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
+		DB23572F254BC03A00E23B05 /* StaffManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StaffManage.storyboard; sourceTree = "<group>"; };
 		DB8767942542F6B50064B3FF /* Tripper_iOS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tripper_iOS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8767972542F6B50064B3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB8767992542F6B50064B3FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,12 +110,15 @@
 				DB8767972542F6B50064B3FF /* AppDelegate.swift */,
 				DB8767992542F6B50064B3FF /* SceneDelegate.swift */,
 				DB87679D2542F6B50064B3FF /* Main.storyboard */,
+				DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */,
+				DB23572A254BBFFB00E23B05 /* Location.storyboard */,
+				DB23572F254BC03A00E23B05 /* StaffManage.storyboard */,
+				DB8767A22542F6B80064B3FF /* LaunchScreen.storyboard */,
 				DB87680E2543DD080064B3FF /* Model */,
 				DB8768092543DC990064B3FF /* View Controllers */,
 				DB87680D2543DCE20064B3FF /* Views (example cell file) */,
 				DB87680F2543DD1C0064B3FF /* Other Controllers (Common file) */,
 				DB8767A02542F6B80064B3FF /* Assets.xcassets */,
-				DB8767A22542F6B80064B3FF /* LaunchScreen.storyboard */,
 				DB8767A52542F6B80064B3FF /* Info.plist */,
 			);
 			path = Tripper_iOS_App;
@@ -266,8 +275,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB235730254BC03A00E23B05 /* StaffManage.storyboard in Resources */,
+				DB23572B254BBFFB00E23B05 /* Location.storyboard in Resources */,
 				DB8767A42542F6B80064B3FF /* LaunchScreen.storyboard in Resources */,
 				DB8767A12542F6B80064B3FF /* Assets.xcassets in Resources */,
+				DB235726254BBFD700E23B05 /* ManagerLogin.storyboard in Resources */,
 				DB87679F2542F6B50064B3FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
