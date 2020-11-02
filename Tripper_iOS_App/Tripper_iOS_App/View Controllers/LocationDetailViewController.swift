@@ -7,8 +7,22 @@
 
 import UIKit
 
+
 class LocationDetailViewController: UIViewController {
     
+    var locationDetail: Location!
+    let url = URL(string: baseURL + "/LocationServlet")
+    
+    
+    @IBOutlet weak var locIdLabel: UILabel!
+    @IBOutlet weak var locNameLabel: UITextField!
+    @IBOutlet weak var locAddressLabel: UITextField!
+    @IBOutlet weak var locCityLabel: UITextField!
+    @IBOutlet weak var locLongitudeLabel: UITextField!
+    @IBOutlet weak var locLatitudeLabel: UITextField!
+    @IBOutlet weak var locInfoLabel: UITextView!
+    
+    @IBOutlet weak var locImageView: UIImageView!
     
     @IBOutlet weak var LocInfoTextView: UITextView!
     
@@ -19,8 +33,36 @@ class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let locInfo = locationDetail {
+            locIdLabel.text = locInfo.locId
+            locNameLabel.text = locInfo.name
+            locAddressLabel.text = locInfo.address
+            locCityLabel.text = locInfo.city
+            locLongitudeLabel.text = String(locInfo.longitude)
+            locLatitudeLabel.text = String(locInfo.latitude)
+            LocInfoTextView.text = locInfo.info
+            fetchLocImage()
+        }
+    }
+    
+    // 利用spot ID去server端取對應照片
+    func fetchLocImage () {
+        var requestParam = [String: Any]()
+        requestParam["action"] = "getImage"
+        requestParam["id"] = locationDetail.locId
+        // 圖片寬度 = 螢幕寬度的
+        requestParam["imageSize"] = view.frame.width
+        executeTask(url!, requestParam) { (data, response, error) in
+            var image: UIImage?
+            if data != nil {
+                image = UIImage(data: data!)
+            }
+            if image == nil {
+                image = UIImage(named: "noImage.jpg")
+            }
+            DispatchQueue.main.async { self.locImageView.image = image }
+        }
     }
     
     

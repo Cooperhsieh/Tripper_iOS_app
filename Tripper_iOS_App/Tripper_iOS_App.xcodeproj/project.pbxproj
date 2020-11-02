@@ -10,6 +10,8 @@
 		DB235726254BBFD700E23B05 /* ManagerLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */; };
 		DB23572B254BBFFB00E23B05 /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23572A254BBFFB00E23B05 /* Location.storyboard */; };
 		DB235730254BC03A00E23B05 /* StaffManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23572F254BC03A00E23B05 /* StaffManage.storyboard */; };
+		DB2C37FA254FCEB80001AD30 /* AddNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C37F9254FCEB80001AD30 /* AddNewLocationViewController.swift */; };
+		DB2C3804254FDFB80001AD30 /* UpdateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3803254FDFB80001AD30 /* UpdateLocationViewController.swift */; };
 		DB5C6771254D3D05006CD6B3 /* LocationDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6770254D3D05006CD6B3 /* LocationDetailTableViewCell.swift */; };
 		DB5C6776254D3D48006CD6B3 /* LocationListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6775254D3D48006CD6B3 /* LocationListTableViewController.swift */; };
 		DB5C6781254D5113006CD6B3 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6780254D5113006CD6B3 /* LocationDetailViewController.swift */; };
@@ -47,6 +49,8 @@
 		DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerLogin.storyboard; sourceTree = "<group>"; };
 		DB23572A254BBFFB00E23B05 /* Location.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
 		DB23572F254BC03A00E23B05 /* StaffManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StaffManage.storyboard; sourceTree = "<group>"; };
+		DB2C37F9254FCEB80001AD30 /* AddNewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationViewController.swift; sourceTree = "<group>"; };
+		DB2C3803254FDFB80001AD30 /* UpdateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationViewController.swift; sourceTree = "<group>"; };
 		DB5C6770254D3D05006CD6B3 /* LocationDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DB5C6775254D3D48006CD6B3 /* LocationListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewController.swift; sourceTree = "<group>"; };
 		DB5C6780254D5113006CD6B3 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				DB87679B2542F6B50064B3FF /* ViewController.swift */,
 				DB5C6775254D3D48006CD6B3 /* LocationListTableViewController.swift */,
 				DB5C6780254D5113006CD6B3 /* LocationDetailViewController.swift */,
+				DB2C37F9254FCEB80001AD30 /* AddNewLocationViewController.swift */,
+				DB2C3803254FDFB80001AD30 /* UpdateLocationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -320,12 +326,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2C3804254FDFB80001AD30 /* UpdateLocationViewController.swift in Sources */,
 				DB5C6776254D3D48006CD6B3 /* LocationListTableViewController.swift in Sources */,
 				DB8768112543DD610064B3FF /* NetworkController.swift in Sources */,
 				DB5C6781254D5113006CD6B3 /* LocationDetailViewController.swift in Sources */,
 				DB87679C2542F6B50064B3FF /* ViewController.swift in Sources */,
 				DB5C678D254D6484006CD6B3 /* Location.swift in Sources */,
 				DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */,
+				DB2C37FA254FCEB80001AD30 /* AddNewLocationViewController.swift in Sources */,
 				DB87679A2542F6B50064B3FF /* SceneDelegate.swift in Sources */,
 				DB5C6771254D3D05006CD6B3 /* LocationDetailTableViewCell.swift in Sources */,
 				DB5C6788254D5E85006CD6B3 /* Login.swift in Sources */,

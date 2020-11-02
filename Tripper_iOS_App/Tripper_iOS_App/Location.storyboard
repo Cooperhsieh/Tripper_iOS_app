@@ -12,7 +12,7 @@
         <scene sceneID="sqJ-E0-SR5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IXn-xn-roc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create Location" image="location" catalog="system" selectedImage="location" id="RWE-aB-1ky"/>
+                    <tabBarItem key="tabBarItem" title="Create Location" image="ic_spot" selectedImage="ic_spot" id="RWE-aB-1ky"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eb1-9X-Ejs">
@@ -67,7 +67,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4Q-nx-dHE">
                                                     <rect key="frame" x="0.0" y="0.0" width="253" height="50.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-2P-IiZ" userLabel="Loc City">
@@ -90,11 +90,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="LocAddress" destination="TUV-2P-IiZ" id="gGY-1c-2D7"/>
                                     <outlet property="LocCity" destination="TUV-2P-IiZ" id="PIk-sp-n9v"/>
                                     <outlet property="LocImageView" destination="o9T-4D-SyA" id="tLJ-zz-aYg"/>
                                     <outlet property="LocName" destination="u4Q-nx-dHE" id="UPJ-RT-PNC"/>
-                                    <segue destination="sTi-jb-KcK" kind="show" id="Qwi-3J-Wgg"/>
+                                    <segue destination="sTi-jb-KcK" kind="show" identifier="locationDetail" id="Qwi-3J-Wgg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,13 +103,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="景點列表" id="pqf-br-fd9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="GGn-XY-mUn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GYo-cV-jiP">
                             <connections>
-                                <segue destination="sTi-jb-KcK" kind="show" id="lFv-xb-TkX"/>
+                                <segue destination="wlY-iU-LNr" kind="show" id="sAg-P5-f1Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="locationTableView" destination="DhL-cl-Xck" id="bME-zw-jdf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sso-83-73e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,24 +323,502 @@
                             <constraint firstItem="EgD-bN-9CJ" firstAttribute="top" secondItem="EIq-HP-ipu" secondAttribute="top" id="uVi-qN-VIm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="POJ-jP-jib">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="eiD-QH-aN3"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="POJ-jP-jib"/>
                     <connections>
                         <outlet property="LocInfoTextView" destination="kpj-ui-IjF" id="5l5-kP-GyT"/>
+                        <outlet property="locAddressLabel" destination="oYG-8m-01U" id="HQc-cE-Khk"/>
+                        <outlet property="locCityLabel" destination="Tgz-vI-A31" id="IaB-wU-XFf"/>
+                        <outlet property="locIdLabel" destination="ziP-6a-Je3" id="vkW-UR-Z9Y"/>
+                        <outlet property="locImageView" destination="KGe-kg-xhS" id="cty-we-hsb"/>
+                        <outlet property="locInfoLabel" destination="kpj-ui-IjF" id="4vx-Hl-LE7"/>
+                        <outlet property="locLatitudeLabel" destination="1dz-g9-flJ" id="4xu-En-4NQ"/>
+                        <outlet property="locLongitudeLabel" destination="gKh-Rh-G5N" id="KkO-QN-WYh"/>
+                        <outlet property="locNameLabel" destination="58h-0p-xen" id="6DZ-wG-jvW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="it7-pU-Ubv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1537.68115942029" y="-10.044642857142856"/>
+            <point key="canvasLocation" x="1796" y="285"/>
+        </scene>
+        <!--Add New Location View Controller-->
+        <scene sceneID="d55-kS-Wo0">
+            <objects>
+                <viewController id="wlY-iU-LNr" customClass="AddNewLocationViewController" customModule="Tripper_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vWX-jq-JuB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-lX-nxo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="nJA-SM-F7R" userLabel="景點ID">
+                                        <rect key="frame" x="10" y="10" width="394" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點ID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYf-G9-E64">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="Mlu-f7-W74"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系統自動產生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDH-SW-p1E">
+                                                <rect key="frame" x="80" y="0.0" width="314" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BL7-QN-NyE" userLabel="圖片">
+                                        <rect key="frame" x="10" y="40" width="160" height="160"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="eId-3n-kkG">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="160" id="DcF-TK-Bkv"/>
+                                                    <constraint firstAttribute="height" constant="160" id="K9i-qa-dzM"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qwM-k1-B3I" userLabel="景點名稱">
+                                        <rect key="frame" x="190" y="32" width="214" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點名稱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwk-eT-3Mb">
+                                                <rect key="frame" x="0.0" y="0.0" width="214" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入景點名稱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKo-da-ayD">
+                                                <rect key="frame" x="0.0" y="39" width="214" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ib9-fa-8og" userLabel="景點地址">
+                                        <rect key="frame" x="10" y="220" width="394" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-kX-oQG">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="kDE-tY-T5I"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zcc-wv-ES3">
+                                                <rect key="frame" x="60" y="0.0" width="334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="yAi-4E-rx4" userLabel="景點城市">
+                                        <rect key="frame" x="10" y="270" width="394" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROR-A9-6Ed">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="9oH-MZ-R7N"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入城市名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UaX-4k-kep">
+                                                <rect key="frame" x="60" y="0.0" width="334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fQG-fS-RKR" userLabel="景點經緯度">
+                                        <rect key="frame" x="10" y="320" width="394" height="34"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="1ab-1C-gsp" userLabel="景點經度">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="經度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-gw-9EO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="mER-Jy-hS7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入經度" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxk-78-BMC">
+                                                        <rect key="frame" x="60" y="0.0" width="132" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3Nu-ko-kI7" userLabel="景點緯度">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緯度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scq-67-LBK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="Uzo-5E-nM8"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入緯度" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rF2-mb-Mie">
+                                                        <rect key="frame" x="60" y="0.0" width="132" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eRi-0r-Hhl" userLabel="景點資訊">
+                                        <rect key="frame" x="10" y="380" width="394" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點資訊：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKp-3q-bA3">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="請輸入景點資訊" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fbk-7L-LPv">
+                                                <rect key="frame" x="0.0" y="25.5" width="394" height="274.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="vxX-ka-n3b"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2P-Rf-0Iz">
+                                        <rect key="frame" x="182" y="155" width="62" height="30"/>
+                                        <state key="normal" title="新增照片"/>
+                                        <connections>
+                                            <action selector="addLocPic:" destination="wlY-iU-LNr" eventType="touchUpInside" id="yWI-N3-l9s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="l7j-MA-i4n" firstAttribute="trailing" secondItem="qwM-k1-B3I" secondAttribute="trailing" constant="10" id="1XF-iG-N3i"/>
+                                    <constraint firstItem="l7j-MA-i4n" firstAttribute="trailing" secondItem="nJA-SM-F7R" secondAttribute="trailing" constant="10" id="8Eo-KM-p2P"/>
+                                    <constraint firstItem="o2P-Rf-0Iz" firstAttribute="top" secondItem="qwM-k1-B3I" secondAttribute="bottom" constant="50" id="ILR-ui-tcJ"/>
+                                    <constraint firstItem="nJA-SM-F7R" firstAttribute="bottom" secondItem="WnA-ld-cZe" secondAttribute="bottom" constant="30.5" id="JNY-wk-ABH"/>
+                                    <constraint firstItem="qwM-k1-B3I" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="190" id="NAL-eW-17H"/>
+                                    <constraint firstItem="nJA-SM-F7R" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="10" id="NiG-YZ-7Xf"/>
+                                    <constraint firstItem="nJA-SM-F7R" firstAttribute="trailing" secondItem="WnA-ld-cZe" secondAttribute="trailing" constant="404" id="Pbf-Yz-J7o"/>
+                                    <constraint firstItem="qwM-k1-B3I" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="32" id="QQB-uD-jyk"/>
+                                    <constraint firstItem="yAi-4E-rx4" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="270" id="RYS-B9-33a"/>
+                                    <constraint firstItem="Ib9-fa-8og" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="10" id="T0Z-Pt-lsp"/>
+                                    <constraint firstItem="fQG-fS-RKR" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="320" id="VbA-e1-YAn"/>
+                                    <constraint firstItem="yAi-4E-rx4" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="10" id="WHq-un-WRt"/>
+                                    <constraint firstItem="fQG-fS-RKR" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="10" id="XVT-jO-UIF"/>
+                                    <constraint firstItem="l7j-MA-i4n" firstAttribute="trailing" secondItem="fQG-fS-RKR" secondAttribute="trailing" constant="10" id="Y4U-6v-2pX"/>
+                                    <constraint firstItem="eRi-0r-Hhl" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="10" id="ZtZ-hD-5x0"/>
+                                    <constraint firstItem="nJA-SM-F7R" firstAttribute="leading" secondItem="WnA-ld-cZe" secondAttribute="leading" constant="10" id="c2f-Tx-GN0"/>
+                                    <constraint firstItem="nJA-SM-F7R" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="10" id="d1Z-jg-xa3"/>
+                                    <constraint firstItem="BL7-QN-NyE" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="40" id="gaI-zx-ffQ"/>
+                                    <constraint firstItem="Ib9-fa-8og" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="220" id="gzb-g4-Vm6"/>
+                                    <constraint firstItem="nJA-SM-F7R" firstAttribute="top" secondItem="WnA-ld-cZe" secondAttribute="top" constant="10" id="hno-iG-hvB"/>
+                                    <constraint firstItem="l7j-MA-i4n" firstAttribute="trailing" secondItem="yAi-4E-rx4" secondAttribute="trailing" constant="10" id="nVh-GJ-Cbb"/>
+                                    <constraint firstItem="eRi-0r-Hhl" firstAttribute="top" secondItem="l7j-MA-i4n" secondAttribute="top" constant="380" id="sLW-hC-ZTD"/>
+                                    <constraint firstItem="l7j-MA-i4n" firstAttribute="trailing" secondItem="eRi-0r-Hhl" secondAttribute="trailing" constant="10" id="vgP-r4-VA0"/>
+                                    <constraint firstItem="l7j-MA-i4n" firstAttribute="trailing" secondItem="Ib9-fa-8og" secondAttribute="trailing" constant="10" id="wKn-yh-3MG"/>
+                                    <constraint firstItem="o2P-Rf-0Iz" firstAttribute="leading" secondItem="BL7-QN-NyE" secondAttribute="trailing" constant="12" id="wZc-Ub-mx4"/>
+                                    <constraint firstItem="BL7-QN-NyE" firstAttribute="leading" secondItem="l7j-MA-i4n" secondAttribute="leading" constant="10" id="yWu-FC-t94"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WnA-ld-cZe"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="l7j-MA-i4n"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SgO-UJ-Kgu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SgO-UJ-Kgu" firstAttribute="bottom" secondItem="6a6-lX-nxo" secondAttribute="bottom" id="8mi-uS-xQf"/>
+                            <constraint firstItem="6a6-lX-nxo" firstAttribute="leading" secondItem="SgO-UJ-Kgu" secondAttribute="leading" id="fcL-hU-q9q"/>
+                            <constraint firstItem="SgO-UJ-Kgu" firstAttribute="trailing" secondItem="6a6-lX-nxo" secondAttribute="trailing" id="gNX-dL-ZFR"/>
+                            <constraint firstItem="6a6-lX-nxo" firstAttribute="top" secondItem="SgO-UJ-Kgu" secondAttribute="top" id="psi-Li-Rte"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NaB-u2-dqZ">
+                        <barButtonItem key="rightBarButtonItem" title="建立景點" id="eUO-Pk-lDT">
+                            <connections>
+                                <segue destination="Vn1-vs-zms" kind="unwind" identifier="AddNewLoc" unwindAction="unwindToLocationListTableViewControllerWithSegue:" id="BMS-Cg-J2l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressTextField" destination="Zcc-wv-ES3" id="qtA-Kg-L2Z"/>
+                        <outlet property="cityTextField" destination="UaX-4k-kep" id="vSW-qm-2eW"/>
+                        <outlet property="imageView" destination="eId-3n-kkG" id="6DF-Ne-VtR"/>
+                        <outlet property="infoTextView" destination="fbk-7L-LPv" id="ja4-eQ-AfO"/>
+                        <outlet property="latitudeTextField" destination="rF2-mb-Mie" id="b1h-rh-sIi"/>
+                        <outlet property="longtitudeTextField" destination="bxk-78-BMC" id="Pw9-Gg-WhC"/>
+                        <outlet property="nameTextField" destination="jKo-da-ayD" id="8Jz-bm-ynm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqU-61-C7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Vn1-vs-zms" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="-403"/>
+        </scene>
+        <!--Update Location View Controller-->
+        <scene sceneID="IR2-0z-qZ1">
+            <objects>
+                <viewController storyboardIdentifier="UpdateLocationViewController" id="b6E-YK-S25" customClass="UpdateLocationViewController" customModule="Tripper_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DpD-WU-2A1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xT-P3-hZc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PrK-RN-5Oz" userLabel="景點ID">
+                                        <rect key="frame" x="10" y="10" width="394" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點ID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhf-8e-QOG">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="dkn-Hf-0ku"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系統自動產生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-eb-n0g">
+                                                <rect key="frame" x="80" y="0.0" width="314" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qnv-28-ivx" userLabel="圖片">
+                                        <rect key="frame" x="10" y="40" width="160" height="160"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="HFo-tu-Sgb">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="160" id="Nb9-aA-ARk"/>
+                                                    <constraint firstAttribute="width" constant="160" id="ffY-fX-ISv"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pWX-St-l4n" userLabel="景點名稱">
+                                        <rect key="frame" x="190" y="32" width="214" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點名稱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAw-iB-diF">
+                                                <rect key="frame" x="0.0" y="0.0" width="214" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入景點名稱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eU-Ci-KYJ">
+                                                <rect key="frame" x="0.0" y="39" width="214" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="itG-yV-8vZ" userLabel="景點地址">
+                                        <rect key="frame" x="10" y="220" width="394" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ES-DQ-aRb">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="lz5-hL-VXD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t6e-Id-EUI">
+                                                <rect key="frame" x="60" y="0.0" width="334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="yND-1i-laO" userLabel="景點城市">
+                                        <rect key="frame" x="10" y="270" width="394" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4f-BL-IFe">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="aVN-AF-7bd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入城市名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTe-3B-dnM">
+                                                <rect key="frame" x="60" y="0.0" width="334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c7X-57-oRP" userLabel="景點經緯度">
+                                        <rect key="frame" x="10" y="320" width="394" height="34"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="XzX-yb-aBg" userLabel="景點經度">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="經度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99I-pA-KUg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="fM6-tV-isx"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入經度" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqi-i8-dmy">
+                                                        <rect key="frame" x="60" y="0.0" width="132" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-dg-G4X" userLabel="景點緯度">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緯度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUa-L2-3mm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="0Ml-Sk-ga3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入緯度" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-Sm-ovz">
+                                                        <rect key="frame" x="60" y="0.0" width="132" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wI7-69-imq" userLabel="景點資訊">
+                                        <rect key="frame" x="10" y="380" width="394" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點資訊：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B50-N8-Eiy">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="請輸入景點資訊" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8ea-1o-XJC">
+                                                <rect key="frame" x="0.0" y="25.5" width="394" height="274.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="oOf-5Y-yKe"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-ly-bZD">
+                                        <rect key="frame" x="190" y="150" width="77" height="30"/>
+                                        <state key="normal" title="更改景點照"/>
+                                        <connections>
+                                            <action selector="ImageChange:" destination="b6E-YK-S25" eventType="touchUpInside" id="hjF-rz-Wsn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="itG-yV-8vZ" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="10" id="0aO-HS-toZ"/>
+                                    <constraint firstItem="pWX-St-l4n" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="32" id="6sj-yz-kZ7"/>
+                                    <constraint firstItem="PrK-RN-5Oz" firstAttribute="leading" secondItem="0RQ-61-SEl" secondAttribute="leading" constant="10" id="777-21-9eq"/>
+                                    <constraint firstItem="r3u-Wu-mZM" firstAttribute="trailing" secondItem="c7X-57-oRP" secondAttribute="trailing" constant="10" id="9qE-xf-ZQu"/>
+                                    <constraint firstItem="PrK-RN-5Oz" firstAttribute="bottom" secondItem="0RQ-61-SEl" secondAttribute="bottom" constant="30.5" id="GcH-PD-d0d"/>
+                                    <constraint firstItem="r3u-Wu-mZM" firstAttribute="trailing" secondItem="itG-yV-8vZ" secondAttribute="trailing" constant="10" id="JAI-qS-SQf"/>
+                                    <constraint firstItem="PrK-RN-5Oz" firstAttribute="top" secondItem="0RQ-61-SEl" secondAttribute="top" constant="10" id="OS6-NS-0sQ"/>
+                                    <constraint firstItem="c7X-57-oRP" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="320" id="QbH-8C-s90"/>
+                                    <constraint firstItem="Qnv-28-ivx" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="10" id="R3o-Va-h3x"/>
+                                    <constraint firstItem="r3u-Wu-mZM" firstAttribute="trailing" secondItem="wI7-69-imq" secondAttribute="trailing" constant="10" id="Ty5-a6-mZj"/>
+                                    <constraint firstItem="NTG-ly-bZD" firstAttribute="leading" secondItem="Qnv-28-ivx" secondAttribute="trailing" constant="20" id="UX0-ei-04K"/>
+                                    <constraint firstItem="PrK-RN-5Oz" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="10" id="WDl-lc-CBt"/>
+                                    <constraint firstItem="NTG-ly-bZD" firstAttribute="top" secondItem="pWX-St-l4n" secondAttribute="bottom" constant="45" id="Xk9-Hf-iGT"/>
+                                    <constraint firstItem="PrK-RN-5Oz" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="10" id="ad7-EF-KH1"/>
+                                    <constraint firstItem="yND-1i-laO" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="10" id="bZL-JY-E0B"/>
+                                    <constraint firstItem="wI7-69-imq" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="10" id="c3T-gM-yni"/>
+                                    <constraint firstItem="Qnv-28-ivx" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="40" id="gCn-AA-0cn"/>
+                                    <constraint firstItem="wI7-69-imq" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="380" id="hJJ-AK-CPG"/>
+                                    <constraint firstItem="r3u-Wu-mZM" firstAttribute="trailing" secondItem="yND-1i-laO" secondAttribute="trailing" constant="10" id="hbb-pC-bs7"/>
+                                    <constraint firstItem="itG-yV-8vZ" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="220" id="inC-Lt-fT3"/>
+                                    <constraint firstItem="r3u-Wu-mZM" firstAttribute="trailing" secondItem="PrK-RN-5Oz" secondAttribute="trailing" constant="10" id="pcC-tq-Z8v"/>
+                                    <constraint firstItem="PrK-RN-5Oz" firstAttribute="trailing" secondItem="0RQ-61-SEl" secondAttribute="trailing" constant="404" id="rPy-Gi-wPV"/>
+                                    <constraint firstItem="r3u-Wu-mZM" firstAttribute="trailing" secondItem="pWX-St-l4n" secondAttribute="trailing" constant="10" id="t37-LA-eHd"/>
+                                    <constraint firstItem="c7X-57-oRP" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="10" id="tYr-in-yql"/>
+                                    <constraint firstItem="pWX-St-l4n" firstAttribute="leading" secondItem="r3u-Wu-mZM" secondAttribute="leading" constant="190" id="vJn-py-WpR"/>
+                                    <constraint firstItem="yND-1i-laO" firstAttribute="top" secondItem="r3u-Wu-mZM" secondAttribute="top" constant="270" id="y3j-df-aXf"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="0RQ-61-SEl"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="r3u-Wu-mZM"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IO9-HI-mmW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IO9-HI-mmW" firstAttribute="trailing" secondItem="8xT-P3-hZc" secondAttribute="trailing" id="0nl-6a-X7M"/>
+                            <constraint firstItem="8xT-P3-hZc" firstAttribute="top" secondItem="IO9-HI-mmW" secondAttribute="top" id="J1d-KK-iM3"/>
+                            <constraint firstItem="IO9-HI-mmW" firstAttribute="bottom" secondItem="8xT-P3-hZc" secondAttribute="bottom" id="ZWP-Vg-cRf"/>
+                            <constraint firstItem="8xT-P3-hZc" firstAttribute="leading" secondItem="IO9-HI-mmW" secondAttribute="leading" id="mcy-ch-F4J"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GWK-OO-BrC">
+                        <barButtonItem key="rightBarButtonItem" title="修改景點" id="oJa-rM-JyL">
+                            <connections>
+                                <action selector="updateLocation:" destination="b6E-YK-S25" id="oKB-kk-7UE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="HFo-tu-Sgb" id="LG7-Jm-t3Y"/>
+                        <outlet property="infoTextField" destination="8ea-1o-XJC" id="BKN-zR-0Mh"/>
+                        <outlet property="latitudeTextField" destination="D5w-Sm-ovz" id="A9D-63-hW5"/>
+                        <outlet property="locAddressTextField" destination="t6e-Id-EUI" id="phL-8t-1LU"/>
+                        <outlet property="locCityTextField" destination="iTe-3B-dnM" id="quX-ac-lc3"/>
+                        <outlet property="locIdLabel" destination="5pf-eb-n0g" id="ae7-7U-Do5"/>
+                        <outlet property="locNameTextField" destination="8eU-Ci-KYJ" id="JOW-cd-WHc"/>
+                        <outlet property="longtitudeTextField" destination="Wqi-i8-dmy" id="msz-RW-P29"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vdd-bz-5SR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="-76"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Qwi-3J-Wgg"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="SamplePic" width="1200" height="630"/>
-        <image name="location" catalog="system" width="128" height="121"/>
+        <image name="ic_spot" width="24" height="24"/>
+        <image name="noImage" width="300" height="183"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,21 +7,17 @@
 
 import Foundation
 
-struct LocationPost: Encodable {
-    let action = "locationInsert"
-    let locationInfo: Location
-}
-
-
-
 struct Location: Codable {
-    let locId: String
-    let name: String
-    let address: String
-    let locType: String?
-    let city: String
-    let info: String
-    let longitude: Double
-    let latitude: Double
-    //let loc_Pic:
+    var locId: String
+    var name: String
+    var address: String
+    var locType: String?
+    var city: String
+    var info: String
+    var longitude: Double
+    var latitude: Double
+
 }
+
+
+
