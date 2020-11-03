@@ -14,7 +14,6 @@
 		DB2C3804254FDFB80001AD30 /* UpdateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3803254FDFB80001AD30 /* UpdateLocationViewController.swift */; };
 		DB5C6771254D3D05006CD6B3 /* LocationDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6770254D3D05006CD6B3 /* LocationDetailTableViewCell.swift */; };
 		DB5C6776254D3D48006CD6B3 /* LocationListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6775254D3D48006CD6B3 /* LocationListTableViewController.swift */; };
-		DB5C6781254D5113006CD6B3 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6780254D5113006CD6B3 /* LocationDetailViewController.swift */; };
 		DB5C6788254D5E85006CD6B3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C6787254D5E85006CD6B3 /* Login.swift */; };
 		DB5C678D254D6484006CD6B3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C678C254D6484006CD6B3 /* Location.swift */; };
 		DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767972542F6B50064B3FF /* AppDelegate.swift */; };
@@ -26,6 +25,9 @@
 		DB8767AF2542F6B80064B3FF /* Tripper_iOS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767AE2542F6B80064B3FF /* Tripper_iOS_AppTests.swift */; };
 		DB8767BA2542F6B80064B3FF /* Tripper_iOS_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767B92542F6B80064B3FF /* Tripper_iOS_AppUITests.swift */; };
 		DB8768112543DD610064B3FF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8768102543DD610064B3FF /* NetworkController.swift */; };
+		DBE7E7882550FF740021CFE9 /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7E7872550FF740021CFE9 /* LocationDetailTableViewController.swift */; };
+		DBE7E79725514F200021CFE9 /* AddNewLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7E79625514F200021CFE9 /* AddNewLocationTableViewController.swift */; };
+		DBE7E79C2551588E0021CFE9 /* UpdateLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7E79B2551588E0021CFE9 /* UpdateLocationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +55,6 @@
 		DB2C3803254FDFB80001AD30 /* UpdateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationViewController.swift; sourceTree = "<group>"; };
 		DB5C6770254D3D05006CD6B3 /* LocationDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DB5C6775254D3D48006CD6B3 /* LocationListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewController.swift; sourceTree = "<group>"; };
-		DB5C6780254D5113006CD6B3 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		DB5C6787254D5E85006CD6B3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DB5C678C254D6484006CD6B3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DB8767942542F6B50064B3FF /* Tripper_iOS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tripper_iOS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +72,9 @@
 		DB8767B92542F6B80064B3FF /* Tripper_iOS_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tripper_iOS_AppUITests.swift; sourceTree = "<group>"; };
 		DB8767BB2542F6B80064B3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB8768102543DD610064B3FF /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		DBE7E7872550FF740021CFE9 /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
+		DBE7E79625514F200021CFE9 /* AddNewLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationTableViewController.swift; sourceTree = "<group>"; };
+		DBE7E79B2551588E0021CFE9 /* UpdateLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,9 +165,11 @@
 			children = (
 				DB87679B2542F6B50064B3FF /* ViewController.swift */,
 				DB5C6775254D3D48006CD6B3 /* LocationListTableViewController.swift */,
-				DB5C6780254D5113006CD6B3 /* LocationDetailViewController.swift */,
 				DB2C37F9254FCEB80001AD30 /* AddNewLocationViewController.swift */,
 				DB2C3803254FDFB80001AD30 /* UpdateLocationViewController.swift */,
+				DBE7E7872550FF740021CFE9 /* LocationDetailTableViewController.swift */,
+				DBE7E79625514F200021CFE9 /* AddNewLocationTableViewController.swift */,
+				DBE7E79B2551588E0021CFE9 /* UpdateLocationTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -327,15 +333,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2C3804254FDFB80001AD30 /* UpdateLocationViewController.swift in Sources */,
+				DBE7E79725514F200021CFE9 /* AddNewLocationTableViewController.swift in Sources */,
 				DB5C6776254D3D48006CD6B3 /* LocationListTableViewController.swift in Sources */,
 				DB8768112543DD610064B3FF /* NetworkController.swift in Sources */,
-				DB5C6781254D5113006CD6B3 /* LocationDetailViewController.swift in Sources */,
 				DB87679C2542F6B50064B3FF /* ViewController.swift in Sources */,
 				DB5C678D254D6484006CD6B3 /* Location.swift in Sources */,
 				DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */,
 				DB2C37FA254FCEB80001AD30 /* AddNewLocationViewController.swift in Sources */,
 				DB87679A2542F6B50064B3FF /* SceneDelegate.swift in Sources */,
+				DBE7E7882550FF740021CFE9 /* LocationDetailTableViewController.swift in Sources */,
 				DB5C6771254D3D05006CD6B3 /* LocationDetailTableViewCell.swift in Sources */,
+				DBE7E79C2551588E0021CFE9 /* UpdateLocationTableViewController.swift in Sources */,
 				DB5C6788254D5E85006CD6B3 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

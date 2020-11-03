@@ -81,7 +81,7 @@ class LocationListTableViewController: UITableViewController, UISearchBarDelegat
             if error == nil {
                 if data != nil {
                     // 將輸入資料列印出來除錯用
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    //print("input: \(String(data: data!, encoding: .utf8)!)")
                     
                     if let result = try? JSONDecoder().decode([Location].self, from: data!) {
                         self.locInfo = result
@@ -150,7 +150,7 @@ class LocationListTableViewController: UITableViewController, UISearchBarDelegat
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // 左滑時顯示Edit按鈕
         let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, bool) in
-            let updateLocation = self.storyboard?.instantiateViewController(identifier: "UpdateLocationViewController") as! UpdateLocationViewController
+            let updateLocation = self.storyboard?.instantiateViewController(identifier: "UpdateLocationUITableViewController") as! UpdateLocationTableViewController
             let location = self.locInfo[indexPath.row]
             updateLocation.locations = location
             self.navigationController?.pushViewController(updateLocation, animated: true)
@@ -219,6 +219,7 @@ class LocationListTableViewController: UITableViewController, UISearchBarDelegat
     }
     */
     
+    
     //第二頁 按下新增之後 可新增一筆資料
     @IBAction func unwindToLocationListTableViewController(Segue: UIStoryboardSegue) {
         guard Segue.identifier == "AddNewLoc" else {return}
@@ -241,7 +242,7 @@ class LocationListTableViewController: UITableViewController, UISearchBarDelegat
         if segue.identifier == "locationDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow!
             let location = locInfo[indexPath.row]
-            let contorller = segue.destination as! LocationDetailViewController
+            let contorller = segue.destination as! LocationDetailTableViewController
             contorller.locationDetail = location
         }
     }

@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 
+// 實機:Tibame 網域
+let realURL = "http://10.2.0.70:8080/Tripper_JAVA_Web/"
+
 let baseURL = "http://localhost:8080/Tripper_JAVA_Web/"
 
 //建立共用連線資料
