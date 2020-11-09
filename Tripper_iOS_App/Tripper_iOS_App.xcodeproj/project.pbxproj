@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114E8112255545E400190D82 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E8111255545E300190D82 /* RegisterViewController.swift */; };
+		11B88ECD2552B3F800AE7DA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B88ECC2552B3F800AE7DA0 /* LoginViewController.swift */; };
 		DB235726254BBFD700E23B05 /* ManagerLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */; };
 		DB23572B254BBFFB00E23B05 /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23572A254BBFFB00E23B05 /* Location.storyboard */; };
 		DB235730254BC03A00E23B05 /* StaffManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB23572F254BC03A00E23B05 /* StaffManage.storyboard */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		114E8111255545E300190D82 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		11B88ECC2552B3F800AE7DA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB235725254BBFD700E23B05 /* ManagerLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerLogin.storyboard; sourceTree = "<group>"; };
 		DB23572A254BBFFB00E23B05 /* Location.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
 		DB23572F254BC03A00E23B05 /* StaffManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StaffManage.storyboard; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				DBE7E7872550FF740021CFE9 /* LocationDetailTableViewController.swift */,
 				DBE7E79625514F200021CFE9 /* AddNewLocationTableViewController.swift */,
 				DBE7E79B2551588E0021CFE9 /* UpdateLocationTableViewController.swift */,
+				11B88ECC2552B3F800AE7DA0 /* LoginViewController.swift */,
+				114E8111255545E300190D82 /* RegisterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -332,11 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B88ECD2552B3F800AE7DA0 /* LoginViewController.swift in Sources */,
 				DB2C3804254FDFB80001AD30 /* UpdateLocationViewController.swift in Sources */,
 				DBE7E79725514F200021CFE9 /* AddNewLocationTableViewController.swift in Sources */,
 				DB5C6776254D3D48006CD6B3 /* LocationListTableViewController.swift in Sources */,
 				DB8768112543DD610064B3FF /* NetworkController.swift in Sources */,
 				DB87679C2542F6B50064B3FF /* ViewController.swift in Sources */,
+				114E8112255545E400190D82 /* RegisterViewController.swift in Sources */,
 				DB5C678D254D6484006CD6B3 /* Location.swift in Sources */,
 				DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */,
 				DB2C37FA254FCEB80001AD30 /* AddNewLocationViewController.swift in Sources */,

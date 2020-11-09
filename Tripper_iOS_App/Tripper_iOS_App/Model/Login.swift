@@ -17,5 +17,10 @@ struct Member: Codable {
     let account: String
     let password: String
     let nickName: String
-    let loginType: Int
+            
+}
+
+struct aAndP : Codable {
+    var account : String
+    var password : String
 }
