@@ -11,7 +11,7 @@ struct Location: Codable {
     var locId: String
     var name: String
     var address: String
-    var locType: String?
+    //var locType: String?
     var city: String
     var info: String
     var longitude: Double

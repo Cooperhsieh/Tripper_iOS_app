@@ -61,7 +61,7 @@ class AddNewLocationViewController: UIViewController, UIImagePickerControllerDel
         let latitude = Double(latitudeTextField.text ?? "") ?? 0
         let info = infoTextView.text ?? ""
         
-        let location = Location(locId: getTransId(), name: name, address: address, locType: "", city: city, info: info, longitude: longtitude, latitude: latitude)
+        let location = Location(locId: getTransId(), name: name, address: address, city: city, info: info, longitude: longtitude, latitude: latitude)
         
         var requestParam = [String: String]()
         requestParam["action"] = "locationInsert"
