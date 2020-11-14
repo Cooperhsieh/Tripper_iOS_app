@@ -20,9 +20,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Obq-TE-gZt" kind="relationship" relationship="viewControllers" id="lMu-PU-mvK"/>
                         <segue destination="Jul-NK-P6k" kind="relationship" relationship="viewControllers" id="Vpz-0B-v4D"/>
                         <segue destination="xDZ-m0-ZTa" kind="relationship" relationship="viewControllers" id="ka8-gx-nTq"/>
+                        <segue destination="bqU-as-6P9" kind="relationship" relationship="viewControllers" id="PPb-Ns-PU1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ni-tw-TAk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -40,16 +40,15 @@
             </objects>
             <point key="canvasLocation" x="1882" y="358"/>
         </scene>
-        <!--ManagerLogin-->
-        <scene sceneID="JC2-39-TcJ">
+        <!--Blog-->
+        <scene sceneID="Rc8-U1-zLv">
             <objects>
-                <viewControllerPlaceholder storyboardName="ManagerLogin" id="Obq-TE-gZt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hlQ-yH-S1n"/>
-                    <navigationItem key="navigationItem" id="LvX-Ee-9Ly"/>
+                <viewControllerPlaceholder storyboardName="Blog" id="bqU-as-6P9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5Ts-gl-Q1h"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ffu-un-7Mr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mej-pa-1nn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="-290"/>
+            <point key="canvasLocation" x="1380" y="486"/>
         </scene>
         <!--Location-->
         <scene sceneID="3PB-cO-VCU">
