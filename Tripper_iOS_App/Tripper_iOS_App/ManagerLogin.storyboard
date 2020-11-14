@@ -8,172 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--管理者登入-->
-        <scene sceneID="IXJ-hW-UZL">
-            <objects>
-                <viewController id="TgI-Xo-O4c" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0fD-4e-WOH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xU9-Zh-nCm" userLabel="帳號">
-                                <rect key="frame" x="10" y="188" width="394" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puy-8U-cXd">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入管理者帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6Z-0y-Kj8">
-                                        <rect key="frame" x="45" y="0.0" width="349" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lzu-GE-OnI" userLabel="密碼">
-                                <rect key="frame" x="10" y="262" width="394" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-qA-qYx">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-ag-TSI">
-                                        <rect key="frame" x="45" y="0.0" width="349" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PSL-R5-EGN" userLabel="按鈕">
-                                <rect key="frame" x="50" y="346" width="314" height="34"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tm7-3u-f9V">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="登入"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhQ-H3-99m">
-                                        <rect key="frame" x="157" y="0.0" width="157" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="創建帳號"/>
-                                        <connections>
-                                            <segue destination="94y-fu-ydP" kind="presentation" id="BIc-XC-vu5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="iWs-7e-gW8"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="PSL-R5-EGN" firstAttribute="top" secondItem="Lzu-GE-OnI" secondAttribute="bottom" constant="50" id="DoI-dF-ysR"/>
-                            <constraint firstItem="xU9-Zh-nCm" firstAttribute="leading" secondItem="iWs-7e-gW8" secondAttribute="leading" constant="10" id="GGo-ps-5Da"/>
-                            <constraint firstItem="Lzu-GE-OnI" firstAttribute="leading" secondItem="iWs-7e-gW8" secondAttribute="leading" constant="10" id="MyA-J1-cGE"/>
-                            <constraint firstItem="iWs-7e-gW8" firstAttribute="trailing" secondItem="PSL-R5-EGN" secondAttribute="trailing" constant="50" id="Ptt-Vk-Crr"/>
-                            <constraint firstItem="iWs-7e-gW8" firstAttribute="trailing" secondItem="xU9-Zh-nCm" secondAttribute="trailing" constant="10" id="iKY-Jg-HJ1"/>
-                            <constraint firstItem="Lzu-GE-OnI" firstAttribute="top" secondItem="xU9-Zh-nCm" secondAttribute="bottom" constant="40" id="kJ9-tJ-UAl"/>
-                            <constraint firstItem="PSL-R5-EGN" firstAttribute="leading" secondItem="iWs-7e-gW8" secondAttribute="leading" constant="50" id="qUz-hd-PJP"/>
-                            <constraint firstItem="iWs-7e-gW8" firstAttribute="trailing" secondItem="Lzu-GE-OnI" secondAttribute="trailing" constant="10" id="wzX-LI-GH5"/>
-                            <constraint firstItem="xU9-Zh-nCm" firstAttribute="top" secondItem="iWs-7e-gW8" secondAttribute="top" constant="100" id="xK0-4M-WGR"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="管理者登入" id="C3V-z2-eDb"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0kU-yn-Dg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1597" y="-180"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="SqC-80-r1i">
-            <objects>
-                <viewController id="94y-fu-ydP" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dmD-W6-PLQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hJo-V1-Lk3" userLabel="帳號">
-                                <rect key="frame" x="10" y="150" width="394" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZ3-Wt-4Q6">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMX-9L-PRJ">
-                                        <rect key="frame" x="45" y="0.0" width="349" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-ml-Bar" userLabel="密碼">
-                                <rect key="frame" x="10" y="214" width="394" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-3G-SxK">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RjW-NN-E1M">
-                                        <rect key="frame" x="45" y="0.0" width="349" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-sW-sTe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="IwY-Qb-zQO">
-                                        <barButtonItem key="leftBarButtonItem" title="取消" id="3EV-gV-2EE"/>
-                                        <barButtonItem key="rightBarButtonItem" title="建立帳號" id="3A6-Ii-Owe"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MDc-RK-jzH" userLabel="暱稱">
-                                <rect key="frame" x="10" y="278" width="394" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暱稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn3-Gp-SP5">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入暱稱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JcV-wI-hi2">
-                                        <rect key="frame" x="45" y="0.0" width="349" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="End-VF-v3b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="hJo-V1-Lk3" firstAttribute="leading" secondItem="End-VF-v3b" secondAttribute="leading" constant="10" id="1z1-g4-zde"/>
-                            <constraint firstItem="gxk-ml-Bar" firstAttribute="leading" secondItem="End-VF-v3b" secondAttribute="leading" constant="10" id="5FV-p0-AYP"/>
-                            <constraint firstItem="hJo-V1-Lk3" firstAttribute="top" secondItem="dmD-W6-PLQ" secondAttribute="top" constant="150" id="72R-3U-rpj"/>
-                            <constraint firstItem="MDc-RK-jzH" firstAttribute="top" secondItem="gxk-ml-Bar" secondAttribute="bottom" constant="30" id="LIe-pd-LYZ"/>
-                            <constraint firstItem="End-VF-v3b" firstAttribute="trailing" secondItem="gxk-ml-Bar" secondAttribute="trailing" constant="10" id="Qa9-gN-HHk"/>
-                            <constraint firstItem="End-VF-v3b" firstAttribute="trailing" secondItem="MDc-RK-jzH" secondAttribute="trailing" constant="10" id="iyb-fx-bOH"/>
-                            <constraint firstItem="End-VF-v3b" firstAttribute="trailing" secondItem="hJo-V1-Lk3" secondAttribute="trailing" constant="10" id="j6j-VO-ZfE"/>
-                            <constraint firstItem="MDc-RK-jzH" firstAttribute="leading" secondItem="End-VF-v3b" secondAttribute="leading" constant="10" id="l9N-d6-ZXb"/>
-                            <constraint firstItem="gxk-ml-Bar" firstAttribute="top" secondItem="hJo-V1-Lk3" secondAttribute="bottom" constant="30" id="z9J-n2-LKA"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9wZ-Bf-zYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2478" y="-180"/>
-        </scene>
         <!--Login-->
         <scene sceneID="TrN-Jv-qxI">
             <objects>
@@ -181,18 +15,39 @@
                     <tabBarItem key="tabBarItem" title="Login" image="person" catalog="system" id="ZcN-lX-W39"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="x2j-h0-9EJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x2j-h0-9EJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LPn-SB-I9S">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="TgI-Xo-O4c" kind="relationship" relationship="rootViewController" id="Ow2-sF-NtJ"/>
+                        <segue destination="4qH-gJ-ieV" kind="relationship" relationship="rootViewController" id="uaf-sM-tGA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAY-5P-Qid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723.1884057971015" y="-180.13392857142856"/>
+            <point key="canvasLocation" x="826" y="-180"/>
+        </scene>
+        <!--管理者資訊-->
+        <scene sceneID="WiS-2O-jv6">
+            <objects>
+                <viewController id="4qH-gJ-ieV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GK0-ix-uh9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UqF-Wm-e8q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="管理者資訊" id="shU-9N-iw7">
+                        <barButtonItem key="rightBarButtonItem" title="登出" id="v1W-x1-JBg"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Il6-KQ-azV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661" y="-180"/>
         </scene>
     </scenes>
     <resources>
