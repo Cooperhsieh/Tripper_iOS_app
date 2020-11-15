@@ -18,4 +18,21 @@ struct Explore : Codable {
     var dateTime: String
 }
 
+struct BlogD : Codable {
 
+    var locationId : String
+    var locationName : String
+    var blogNote : String?
+    var s_Date : String
+    var blogId : String
+    var tripId : String
+}
+
+struct BlogPic : Codable {
+    var blogId : String?
+    var locId : String?
+    var pic1 : String?
+    var pic2 : String?
+    var pic3 : String?
+    var pic4 : String?
+}

@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="269.56521739130437" y="85.714285714285708"/>
         </scene>
-        <!--Staff List Table View Controller-->
+        <!--管理者列表-->
         <scene sceneID="8zb-MG-E3U">
             <objects>
                 <tableViewController id="KHo-eA-mDV" customClass="StaffListTableViewController" customModule="Tripper_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                             <outlet property="delegate" destination="KHo-eA-mDV" id="iFz-kY-oUh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tZe-vl-Ygs">
+                    <navigationItem key="navigationItem" title="管理者列表" id="tZe-vl-Ygs">
                         <barButtonItem key="rightBarButtonItem" title="登出" style="done" id="J2r-5G-1UX">
                             <connections>
                                 <action selector="log:" destination="KHo-eA-mDV" id="1vH-5J-lk0"/>

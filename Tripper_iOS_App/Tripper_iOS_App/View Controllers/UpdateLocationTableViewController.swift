@@ -29,6 +29,7 @@ class UpdateLocationTableViewController: UITableViewController, UIImagePickerCon
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchLocInfo()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 172/255, blue: 193/255, alpha: 1)
     }
     
     func fetchLocInfo () {

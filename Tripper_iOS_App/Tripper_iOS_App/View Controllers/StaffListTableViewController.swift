@@ -16,6 +16,7 @@ class StaffListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewAddRefreshControl()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 172/255, blue: 193/255, alpha: 1)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

@@ -12,18 +12,25 @@ class BlogTableViewController: UITableViewController {
     var blogList = [Explore]()
     let url = URL(string: baseURL + "/ExploreServlet")
     let blogUrl = URL(string: baseURL + "/BlogServlet")
+    let memberUrl = URL(string: baseURL + "/MemberServlet")
     
     @IBOutlet var blogTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        fetchBlog()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 172/255, blue: 193/255, alpha: 1)
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchBlog()
+    }
+    
+    func tableViewAddRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(fetchBlog), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
     }
     
     @objc func fetchBlog() {
@@ -51,12 +58,6 @@ class BlogTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -65,80 +66,144 @@ class BlogTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell", for: indexPath) as! BlogTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(BlogTableViewCell.self)", for: indexPath) as! BlogTableViewCell
         
         let blog = blogList[indexPath.row]
         
-//        var requestParam = [String: Any]()
-//        requestParam["action"] = "getImage"
-//        requestParam["id"] = blog.blogId
-//        requestParam["imageSize"] = cell.frame.width
-//        var image: UIImage?
-//        executeTask(blogUrl!, requestParam) { (data, response, error) in
-//            if error == nil {
-//                if data != nil {
-//                    image = UIImage(data: data!)
-//                }
-//                if image == nil {
-//                    image = UIImage(named: "noImage.jpg")
-//                }
-//                DispatchQueue.main.async {
-//                    cell.blogImageView.image = image
-//                    print("############有成功執行")
-//                }
-//            } else {
-//                print(error!.localizedDescription)
-//            }
-//        }
+        var requestParam = [String: Any]()
+        requestParam["action"] = "getImage"
+        requestParam["id"] = blog.blogId
+        requestParam["imageSize"] = cell.frame.width
+        
+        var userrequestParam = [String: Any]()
+        userrequestParam["action"] = "getImage"
+        userrequestParam["id"] = blog.userId
+        userrequestParam["imageSize"] = cell.frame.width
+        
+        var image: UIImage?
+        var userImage : UIImage?
+        executeTask(blogUrl!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
+                }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async {
+                    cell.blogImageView.image = image
+                
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        //抓取大頭貼
+        
+        executeTask(memberUrl!, userrequestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    userImage = UIImage(data: data!)
+                }
+                if image == nil {
+                    userImage = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async {
+                    cell.userPicImageView.image = userImage
+                
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
         cell.blogNameLabel.text = blog.tittleName
-        print("##############\(blog.tittleName)")
+        cell.userNameLabel.text = blog.nickName
+        cell.dateLabel.text = "上傳日期：\(blog.dateTime)"
+        
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    //左滑 編輯 or 刪除
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        // 左滑時顯示Edit按鈕
+//        let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, bool) in
+//            let updateLocation = self.storyboard?.instantiateViewController(identifier: "UpdateLocationUITableViewController") as! UpdateLocationTableViewController
+//            let blog = self.blogList[indexPath.row]
+//            updateLocation.locations = location
+//            self.navigationController?.pushViewController(updateLocation, animated: true)
+//        }
+//        edit.backgroundColor = UIColor.lightGray
+        
+        // 左滑時顯示Delete按鈕
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, bool) in
+            var requestParam = [String: Any]()
+            requestParam["action"] = "blogDelete"
+            requestParam["blogId"] =  self.blogList[indexPath.row].blogId
+            let blogId = self.blogList[indexPath.row].blogId
+            executeTask(self.blogUrl!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        if let result = String(data: data!, encoding: .utf8) {
+                            if let count = Int(result) {
+                                // 確定server端刪除資料後，才將client端資料刪除
+                                if count != 0 {
+                                    self.blogList.remove(at: indexPath.row)
+                                    self.tripDataChange(blogId: blogId)
+                                    DispatchQueue.main.async {
+                                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                                        let controller = UIAlertController(title: "Blog Manage", message: "已將此網誌下架！", preferredStyle: .alert)
+                                        let okAction = UIAlertAction(title: "ok", style: .default)
+                                          controller.addAction(okAction)
+                                        self.present(controller, animated: true, completion: nil)
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+        }
+        delete.backgroundColor = UIColor.red
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
+        // true代表滑到底視同觸發第一個動作；false代表滑到底也不會觸發任何動作
+        swipeActions.performsFirstActionWithFullSwipe = false
+        return swipeActions
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func tripDataChange(blogId : String){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "Trip_M_Servlet"
+        requestParam["tripId"] = blogId
+        requestParam["blogStatus"] = 0
+        executeTask(self.url!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let result = String(data: data!, encoding: .utf8) {
+                        if let count = Int(result) {
+                            // 確定server端刪除資料後，才將client端資料刪除
+                            if count != 0 {
+                              print("更改成功")
+                            }
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "blogDetail" {
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            let blog = blogList[indexPath.row]
+            let contorller = segue.destination as! BlogDetailTableViewController
+            contorller.blogDetail = blog
+        }
     }
-    */
-
 }
