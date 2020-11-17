@@ -85,15 +85,19 @@ class BlogTableViewController: UITableViewController {
         executeTask(blogUrl!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-                    image = UIImage(data: data!)
+                    if let image = UIImage(data: data!){
+                        DispatchQueue.main.async {
+                            cell.blogImageView.image = image
+                        }
+                    }
                 }
-                if image == nil {
+                else {
                     image = UIImage(named: "noImage.jpg")
+                    DispatchQueue.main.async {
+                        cell.blogImageView.image = image
+                    }
                 }
-                DispatchQueue.main.async {
-                    cell.blogImageView.image = image
-                
-                }
+               
             } else {
                 print(error!.localizedDescription)
             }
@@ -103,15 +107,19 @@ class BlogTableViewController: UITableViewController {
         executeTask(memberUrl!, userrequestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-                    userImage = UIImage(data: data!)
+                    if let userImage = UIImage(data: data!){
+                        DispatchQueue.main.async {
+                            cell.userPicImageView.image = userImage
+                        }
+                    }
                 }
-                if image == nil {
+                else {
                     userImage = UIImage(named: "noImage.jpg")
+                    DispatchQueue.main.async {
+                        cell.userPicImageView.image = userImage
+                    }
                 }
-                DispatchQueue.main.async {
-                    cell.userPicImageView.image = userImage
                 
-                }
             } else {
                 print(error!.localizedDescription)
             }

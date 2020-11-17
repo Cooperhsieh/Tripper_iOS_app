@@ -15,6 +15,7 @@ class BlogDetailTableViewController: UITableViewController {
     var blogPic : BlogPic?
     var imageView : UIImageView?
     var blogPicDic = [String: BlogPic]()
+    
 
 
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class BlogDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let detail = blogDetail {
             blogId = detail.blogId
+            
         }
       
         fetchBlogDetail()
@@ -76,9 +78,9 @@ class BlogDetailTableViewController: UITableViewController {
         cell.spotNameLabel.text = blog.locationName
         cell.dateLabel.text = blog.s_Date
         if let blogInfo = blog.blogNote {
-            cell.spotInfoLabel.text = "文字敘述：\(blogInfo)"
+            cell.spotInfoLabel.text = "文字敘述：\n\(blogInfo)"
         }else{
-            cell.spotInfoLabel.text = "文字敘述：無文字說明"
+            cell.spotInfoLabel.text = "無文字說明"
         }
     
   
@@ -118,7 +120,8 @@ class BlogDetailTableViewController: UITableViewController {
                                     cell.pic1ImageView.isHidden = false
                                 print("#############111111")
                             }else {
-                                cell.pic1ImageView.isHidden = true
+                                cell.pic1ImageView.isHidden = false
+                                cell.pic1ImageView.image =  UIImage(named: "nopic")
                             }
                         
                             if let pic2 = blogPic.pic2 {
@@ -140,7 +143,6 @@ class BlogDetailTableViewController: UITableViewController {
                                 print("#############333333")
                             }else{
                                 cell.pic3ImageView.isHidden = true
-                                
                             }
                             
                             
