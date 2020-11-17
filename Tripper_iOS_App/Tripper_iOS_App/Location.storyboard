@@ -441,8 +441,9 @@
                                                         <action selector="addLocPic:" destination="upC-VW-9fN" eventType="touchUpInside" id="vvd-CP-mzv"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO0-ER-jK4">
-                                                    <rect key="frame" x="369" y="0.0" width="30" height="123"/>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO0-ER-jK4">
+                                                    <rect key="frame" x="217" y="0.0" width="197" height="123"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <connections>
                                                         <action selector="magicButton:" destination="upC-VW-9fN" eventType="touchUpInside" id="FHK-XQ-UKd"/>
@@ -454,12 +455,16 @@
                                                 <constraint firstItem="oCz-Xc-9Lo" firstAttribute="leading" secondItem="hg4-96-aGF" secondAttribute="trailing" constant="30" id="3Fb-I7-oVc"/>
                                                 <constraint firstAttribute="bottom" secondItem="hg4-96-aGF" secondAttribute="bottom" constant="10" id="6ka-A1-HY7"/>
                                                 <constraint firstItem="oCz-Xc-9Lo" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="topMargin" constant="34" id="84b-Rr-TWb"/>
+                                                <constraint firstItem="SO0-ER-jK4" firstAttribute="leading" secondItem="oCz-Xc-9Lo" secondAttribute="trailing" id="Cci-sv-fW0"/>
                                                 <constraint firstItem="hg4-96-aGF" firstAttribute="leading" secondItem="7gM-ax-PsM" secondAttribute="leading" constant="10" id="Cwx-v7-qxy"/>
-                                                <constraint firstAttribute="trailing" secondItem="SO0-ER-jK4" secondAttribute="trailing" constant="15" id="Hjh-sy-Ta7"/>
+                                                <constraint firstItem="SO0-ER-jK4" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="top" id="DJi-FU-7cP"/>
+                                                <constraint firstItem="SO0-ER-jK4" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="top" id="OJZ-Eb-YxB"/>
                                                 <constraint firstAttribute="bottom" secondItem="SO0-ER-jK4" secondAttribute="bottom" id="S98-jW-mrf"/>
-                                                <constraint firstItem="SO0-ER-jK4" firstAttribute="centerY" secondItem="7gM-ax-PsM" secondAttribute="centerY" id="UCD-R5-lS3"/>
+                                                <constraint firstAttribute="trailing" secondItem="SO0-ER-jK4" secondAttribute="trailing" id="htN-gE-hO9"/>
+                                                <constraint firstAttribute="trailing" secondItem="SO0-ER-jK4" secondAttribute="trailing" id="iLp-6g-WCL"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oCz-Xc-9Lo" secondAttribute="bottom" constant="37" id="iuT-DX-N4n"/>
                                                 <constraint firstItem="hg4-96-aGF" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="top" constant="10" id="yG3-Wl-rZc"/>
+                                                <constraint firstAttribute="trailing" secondItem="SO0-ER-jK4" secondAttribute="trailing" id="zWE-X3-wec"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -663,7 +668,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wh5-bm-wgf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Vg7-lR-GCR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="-376"/>
+            <point key="canvasLocation" x="1795.6521739130437" y="-376.33928571428572"/>
         </scene>
         <!--Update Location Table View Controller-->
         <scene sceneID="Nd0-Md-I8E">
@@ -728,14 +733,25 @@
                                                         <action selector="changeLocPic:" destination="xZk-Ob-z3e" eventType="touchUpInside" id="P7T-oS-T8F"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2H-dg-cNn">
+                                                    <rect key="frame" x="217" y="0.0" width="197" height="123"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <connections>
+                                                        <action selector="magicButton:" destination="xZk-Ob-z3e" eventType="touchUpInside" id="fVG-nj-7QB"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yLP-Lr-Bhd" firstAttribute="top" secondItem="qzl-zr-Ypx" secondAttribute="top" constant="10" id="0th-4V-zv7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="I1g-YO-vHP" secondAttribute="bottom" constant="37" id="3kP-NU-bJT"/>
                                                 <constraint firstItem="yLP-Lr-Bhd" firstAttribute="leading" secondItem="qzl-zr-Ypx" secondAttribute="leading" constant="10" id="Deq-ae-VlY"/>
+                                                <constraint firstAttribute="bottom" secondItem="S2H-dg-cNn" secondAttribute="bottom" id="Thg-9d-pt7"/>
                                                 <constraint firstAttribute="bottom" secondItem="yLP-Lr-Bhd" secondAttribute="bottom" constant="10" id="dN1-vG-rnq"/>
+                                                <constraint firstItem="S2H-dg-cNn" firstAttribute="top" secondItem="qzl-zr-Ypx" secondAttribute="top" id="deZ-bA-ecn"/>
                                                 <constraint firstItem="I1g-YO-vHP" firstAttribute="leading" secondItem="yLP-Lr-Bhd" secondAttribute="trailing" constant="30" id="fgk-4I-Lm4"/>
                                                 <constraint firstItem="I1g-YO-vHP" firstAttribute="top" secondItem="qzl-zr-Ypx" secondAttribute="topMargin" constant="34" id="h64-uz-Eby"/>
+                                                <constraint firstAttribute="trailing" secondItem="S2H-dg-cNn" secondAttribute="trailing" id="mC4-0g-JI5"/>
+                                                <constraint firstItem="S2H-dg-cNn" firstAttribute="leading" secondItem="I1g-YO-vHP" secondAttribute="trailing" id="pTD-MU-5kN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -933,11 +949,12 @@
                         <outlet property="locIdLabel" destination="h8O-tC-AXH" id="UO6-Jj-MH3"/>
                         <outlet property="locNameTextField" destination="Aya-Rz-GBp" id="vC0-Rp-0i1"/>
                         <outlet property="longtitudeTextField" destination="ghd-JW-dAq" id="ZKN-R2-ZUZ"/>
+                        <outlet property="magicButton" destination="S2H-dg-cNn" id="8kp-c0-OaO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCb-ri-5sd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2622" y="-113"/>
+            <point key="canvasLocation" x="2621.739130434783" y="-113.16964285714285"/>
         </scene>
     </scenes>
     <resources>

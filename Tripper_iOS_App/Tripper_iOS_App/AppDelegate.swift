@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
         
         UITabBar.appearance().tintColor =  #colorLiteral(red: 0, green: 0.6745098039, blue: 0.7568627451, alpha: 1) //(0,172,193)
-            
+        UIBarButtonItem.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+       
             
         
         return true

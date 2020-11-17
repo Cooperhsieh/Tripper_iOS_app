@@ -331,31 +331,28 @@
                             <constraint firstItem="ufb-UD-deD" firstAttribute="leading" secondItem="VUN-Hq-8vj" secondAttribute="leading" constant="57" id="I2g-5W-TsJ"/>
                             <constraint firstItem="IIj-St-q22" firstAttribute="centerX" secondItem="46R-1m-DJw" secondAttribute="centerX" id="IJG-m9-K40"/>
                             <constraint firstItem="9GW-1y-5mw" firstAttribute="leading" secondItem="VUN-Hq-8vj" secondAttribute="leading" constant="61" id="LPm-EP-25h"/>
-<<<<<<< HEAD
+
                             <constraint firstItem="A4a-Wk-csT" firstAttribute="top" secondItem="g14-5P-3Kb" secondAttribute="bottom" constant="65" id="QEb-C9-GTA"/>
                             <constraint firstItem="41X-3p-JG8" firstAttribute="leading" secondItem="VUN-Hq-8vj" secondAttribute="leading" constant="61" id="QF0-cd-1uT"/>
                             <constraint firstItem="VUN-Hq-8vj" firstAttribute="trailing" secondItem="IIj-St-q22" secondAttribute="trailing" constant="57" id="QXM-nx-k2f"/>
                             <constraint firstItem="IQV-D6-leG" firstAttribute="top" secondItem="41X-3p-JG8" secondAttribute="bottom" constant="8" symbolic="YES" id="VYA-MC-u0G"/>
                             <constraint firstItem="VUN-Hq-8vj" firstAttribute="bottom" secondItem="A4a-Wk-csT" secondAttribute="bottom" constant="138" id="WQ3-ZO-b3a"/>
-=======
+
                             <constraint firstItem="NoO-wt-qbZ" firstAttribute="leading" secondItem="WF6-XQ-Xfa" secondAttribute="trailing" constant="5" id="O3X-VL-UGR"/>
                             <constraint firstItem="A4a-Wk-csT" firstAttribute="centerX" secondItem="46R-1m-DJw" secondAttribute="centerX" id="Q6S-41-vGS"/>
-                            <constraint firstItem="41X-3p-JG8" firstAttribute="leading" secondItem="VUN-Hq-8vj" secondAttribute="leading" constant="61" id="QF0-cd-1uT"/>
-                            <constraint firstItem="VUN-Hq-8vj" firstAttribute="trailing" secondItem="IIj-St-q22" secondAttribute="trailing" constant="57" id="QXM-nx-k2f"/>
-                            <constraint firstItem="IQV-D6-leG" firstAttribute="top" secondItem="41X-3p-JG8" secondAttribute="bottom" constant="8" symbolic="YES" id="VYA-MC-u0G"/>
+        
                             <constraint firstItem="g14-5P-3Kb" firstAttribute="top" secondItem="IQV-D6-leG" secondAttribute="bottom" constant="30" id="YCW-Bm-ccP"/>
->>>>>>> b9674caef8c22b6daa0b1c04696de839fbf2362b
+
                             <constraint firstItem="WF6-XQ-Xfa" firstAttribute="leading" secondItem="VUN-Hq-8vj" secondAttribute="leading" constant="61" id="cLy-2N-9j9"/>
                             <constraint firstItem="MC2-Xt-g0o" firstAttribute="top" secondItem="9GW-1y-5mw" secondAttribute="bottom" constant="8" symbolic="YES" id="lAI-hi-b7z"/>
                             <constraint firstItem="WF6-XQ-Xfa" firstAttribute="top" secondItem="VUN-Hq-8vj" secondAttribute="top" constant="134" id="oIt-pP-fEg"/>
                             <constraint firstItem="41X-3p-JG8" firstAttribute="top" secondItem="ufb-UD-deD" secondAttribute="bottom" constant="18" id="p6y-zA-FKY"/>
                             <constraint firstItem="g14-5P-3Kb" firstAttribute="centerX" secondItem="46R-1m-DJw" secondAttribute="centerX" id="peK-MD-OgT"/>
                             <constraint firstItem="PM2-WF-2d8" firstAttribute="leading" secondItem="VUN-Hq-8vj" secondAttribute="leading" constant="61" id="qnH-kn-deI"/>
-<<<<<<< HEAD
-=======
+
                             <constraint firstItem="NoO-wt-qbZ" firstAttribute="top" secondItem="VUN-Hq-8vj" secondAttribute="top" constant="105" id="rrd-EV-zTa"/>
                             <constraint firstItem="A4a-Wk-csT" firstAttribute="top" secondItem="g14-5P-3Kb" secondAttribute="bottom" constant="30" id="tkO-Fa-lvU"/>
->>>>>>> b9674caef8c22b6daa0b1c04696de839fbf2362b
+
                             <constraint firstItem="VUN-Hq-8vj" firstAttribute="trailing" secondItem="IQV-D6-leG" secondAttribute="trailing" constant="57" id="wHU-1e-bLv"/>
                         </constraints>
                     </view>

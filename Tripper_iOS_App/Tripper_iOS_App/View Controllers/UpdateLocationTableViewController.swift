@@ -21,6 +21,11 @@ class UpdateLocationTableViewController: UITableViewController, UIImagePickerCon
     @IBOutlet weak var imageView: UIImageView!
     
     
+    @IBOutlet weak var magicButton: UIButton!
+    
+    
+    
+    
     var locations: Location!
     let url = URL(string: baseURL + "/LocationServlet")
     var imageUpdate: UIImage?
@@ -123,6 +128,17 @@ class UpdateLocationTableViewController: UITableViewController, UIImagePickerCon
     
     @IBAction func keyboardReturnPressed(_ sender: Any) {
     }
+    
+    
+    @IBAction func magicButton(_ sender: Any) {
+        locNameTextField.text = "測試景點"
+        locAddressTextField.text = "測試地址"
+        locCityTextField.text = "測試城市"
+        longtitudeTextField.text = "231.12"
+        latitudeTextField.text = "2341.64"
+        infoTextField.text = "測試"
+    }
+    
 
 
 }
