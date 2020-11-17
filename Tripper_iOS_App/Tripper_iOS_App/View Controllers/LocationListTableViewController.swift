@@ -16,6 +16,7 @@ class LocationListTableViewController: UITableViewController, UISearchBarDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 172/255, blue: 193/255, alpha: 1)
         tableViewAddRefreshControl()
         searchBar()
     }

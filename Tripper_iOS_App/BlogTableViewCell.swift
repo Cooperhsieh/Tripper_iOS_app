@@ -9,13 +9,17 @@ import UIKit
 
 class BlogTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userPicImageView: UIImageView!
     @IBOutlet weak var blogNameLabel: UILabel!
     @IBOutlet weak var blogImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-       
+        blogNameLabel.font = UIFont.boldSystemFont(ofSize: 23)
+        userNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
