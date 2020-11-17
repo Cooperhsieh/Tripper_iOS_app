@@ -15,7 +15,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     var member : aAndP?
     let url = URL(string: baseURL + "/MemberServlet")
     var isAccess : Bool = false
-    let userDefault = UserDefaults()
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +51,11 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
                     if let result = String(data: data!, encoding: .utf8){
                         if let count = Int(result){
                             DispatchQueue.main.async {
-                                if count == 1 {
-                                    self.userDefault.setValue("login", forKey: "ON")
+                                if count == 0 || count == 1 {
+                                    self.userDefault.set(count,forKey: "STATUS")
                                     self.accountTextField.text = ""
                                     self.passwordTextField.text = ""
-                    self.performSegue(withIdentifier: "login", sender: self)
+                                    self.performSegue(withIdentifier: "login", sender: self)
                                 } else {
                                         self.loginInfoLabel.text = "帳號或密碼錯誤"
                                     }
@@ -99,3 +99,10 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     */
 
 }
+//
+//let userdefault = UserDefaults.standard
+//userdefault.set(Int,forKey: "")
+//
+//let userDefault = UserDefaults.standard
+//let name = userdefault.integer(forKey: <#T##String#>)
+//

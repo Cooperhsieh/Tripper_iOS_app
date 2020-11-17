@@ -11,12 +11,14 @@ class StaffListTableViewController: UITableViewController {
 
     var members = [Member]()
     let url = URL(string: baseURL + "/ManagerServlet")
-    let userDefault = UserDefaults()
+    let userDefault = UserDefaults.standard
+    var status = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewAddRefreshControl()
         navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 172/255, blue: 193/255, alpha: 1)
+        status = userDefault.integer(forKey: "STATUS")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -84,7 +86,7 @@ class StaffListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        // 左滑時顯示Delete按鈕
+        if status == 1 { // 左滑時顯示Delete按鈕
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, bool) in
             var requestParam = [String: Any]()
             requestParam["action"] = "deleteManager"
@@ -111,10 +113,14 @@ class StaffListTableViewController: UITableViewController {
         }
         delete.backgroundColor = UIColor.red
         
+        
         let swipeActions = UISwipeActionsConfiguration(actions: [delete])
         // true代表滑到底視同觸發第一個動作；false代表滑到底也不會觸發任何動作
         swipeActions.performsFirstActionWithFullSwipe = false
         return swipeActions
+        }else {
+            return nil
+        }
     }
     
     /*
