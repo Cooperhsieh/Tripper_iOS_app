@@ -14,7 +14,8 @@ class BlogDetailTableViewController: UITableViewController {
     let url = URL(string: baseURL + "/BlogServlet")
     var blogPic : BlogPic?
     
-    
+    var blogPicDic = [String: BlogPic]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,11 @@ class BlogDetailTableViewController: UITableViewController {
 
     @objc func fetchBlogDetail(){
         var requestParam = [String: Any]()
+        
         requestParam["action"] = "findById"
         requestParam["id"] = blogId
    
-        executeTask(url!, requestParam) { (data, response, error) in
+         executeTask(url!, requestParam) { (data, response, error) in
             if error == nil {
                
                 if data != nil {
@@ -68,6 +70,8 @@ class BlogDetailTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(BlogDetailTableViewCell.self)", for: indexPath) as! BlogDetailTableViewCell
         
+        cell.task?.cancel()
+        
         let blog = blogDetailList[indexPath.row]
         cell.spotNameLabel.text = blog.locationName
         cell.dateLabel.text = blog.s_Date
@@ -76,51 +80,90 @@ class BlogDetailTableViewController: UITableViewController {
         }else{
             cell.spotInfoLabel.text = "文字敘述：無文字說明"
         }
-        cell.pic1ImageView.image = nil
-        cell.pic2ImageView.image = nil
-        cell.pic3ImageView.image = nil
-        cell.pic4ImageView.image = nil
-        
+    
+  
         var requestParam = [String: Any]()
         requestParam["action"] = "getSpotImage"
         requestParam["blog_Id"] = blog.blogId
         requestParam["loc_Id"] = blog.locationId
         
-        executeTask(url!, requestParam) { (data, response, error) in
+        cell.pic1ImageView.isHidden = true
+        cell.pic2ImageView.isHidden = true
+        cell.pic3ImageView.isHidden = true
+        cell.pic4ImageView.isHidden = true
+        
+
+        print("blogId",blog.blogId,"locationId",  blog.locationId, indexPath)
+        cell.task = executeTask(url!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
                     // 將輸入資料列印出來除錯用
                     //print("input: \(String(data: data!, encoding: .utf8)!)")
                     
                     if let result = try? JSONDecoder().decode(BlogPic.self, from: data!) {
-                        self.blogPic = result
+                       let blogPic = result
+                        
+                        print("result", blog.locationId, indexPath, self.blogPic?.pic1?.count)
                         
                         DispatchQueue.main.async {
                             
-                            if let pic1 = self.blogPic?.pic1 {
+
+                            if let pic1 = blogPic.pic1 {
+                                print("indexPath pic1", indexPath)
+
                                 let decodedData = NSData(base64Encoded : pic1, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
-                                cell.pic1ImageView.image = decodedimage
-                            };if let pic2 = self.blogPic?.pic1 {
+                                
+                                    cell.pic1ImageView.image = decodedimage
+                                    cell.pic1ImageView.isHidden = false
+                                print("#############111111")
+                            }else {
+                                cell.pic1ImageView.isHidden = true
+                            }
+                        
+                            if let pic2 = blogPic.pic2 {
                                 let decodedData = NSData(base64Encoded : pic2, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
+                                
                                 cell.pic2ImageView.image = decodedimage
-                            };if let pic3 = self.blogPic?.pic1 {
+                                cell.pic2ImageView.isHidden = false
+                                print("#############22222")
+                            }else {
+                                cell.pic2ImageView.isHidden = true
+                            }
+                            
+                            if let pic3 = blogPic.pic3 {
                                 let decodedData = NSData(base64Encoded : pic3, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
                                 cell.pic3ImageView.image = decodedimage
-                            };if let pic4 = self.blogPic?.pic1 {
+                                cell.pic3ImageView.isHidden = false
+                                print("#############333333")
+                            }else{
+                                cell.pic3ImageView.isHidden = true
+                                
+                            }
+                            
+                            
+                            if let pic4 = blogPic.pic4 {
                                 let decodedData = NSData(base64Encoded : pic4, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
                                 cell.pic4ImageView.image = decodedimage
+                                cell.pic4ImageView.isHidden = false
+                                print("#############44444444")
+                            }else {
+                                cell.pic4ImageView.isHidden = true
+                               
                             }
                             
+
                         }
+                       
                     }
                 }
             } else {
                 print(error!.localizedDescription)
             }
+            
         }
         
         
@@ -145,7 +188,7 @@ class BlogDetailTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

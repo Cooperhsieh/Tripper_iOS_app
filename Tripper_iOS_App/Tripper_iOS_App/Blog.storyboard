@@ -148,7 +148,7 @@
         <scene sceneID="S0A-4j-12X">
             <objects>
                 <tableViewController id="uNT-Ut-AVr" customClass="BlogDetailTableViewController" customModule="Tripper_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dm-Ou-J9G">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="169" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dm-Ou-J9G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -221,7 +221,7 @@
                                                 </imageView>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-fi-Mbr">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-fi-Mbr">
                                             <rect key="frame" x="12" y="114" width="393" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="McH-d4-76x"/>
@@ -242,7 +242,6 @@
                                         <constraint firstItem="Ued-fi-Mbr" firstAttribute="top" secondItem="d13-V4-BJK" secondAttribute="bottom" constant="8" symbolic="YES" id="WbK-PN-I4w"/>
                                         <constraint firstItem="5Tr-uU-m0i" firstAttribute="top" secondItem="ROF-Fs-wlV" secondAttribute="topMargin" constant="4" id="X0j-3O-Pdw"/>
                                         <constraint firstItem="d13-V4-BJK" firstAttribute="top" secondItem="KUE-WO-zUl" secondAttribute="bottom" constant="8" symbolic="YES" id="XKC-pT-Q3L"/>
-                                        <constraint firstAttribute="trailing" secondItem="d13-V4-BJK" secondAttribute="trailing" constant="187" id="bsS-7z-lHm"/>
                                         <constraint firstItem="KUE-WO-zUl" firstAttribute="leading" secondItem="ROF-Fs-wlV" secondAttribute="leading" constant="12" id="cFg-xE-ePO"/>
                                         <constraint firstItem="d13-V4-BJK" firstAttribute="leading" secondItem="ROF-Fs-wlV" secondAttribute="leading" constant="12" id="dSf-6l-bYx"/>
                                         <constraint firstAttribute="trailing" secondItem="Ued-fi-Mbr" secondAttribute="trailing" constant="9" id="fUA-CN-vE6"/>

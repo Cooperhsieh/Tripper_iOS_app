@@ -16,6 +16,17 @@ class BlogDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var pic3ImageView: UIImageView!
     @IBOutlet weak var pic4ImageView: UIImageView!
     @IBOutlet weak var spotInfoLabel: UILabel!
+    var blogId: String!
+    
+    var task: URLSessionTask?
+//
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        pic1ImageView.image = nil
+        pic2ImageView.image = nil
+        pic3ImageView.image = nil
+        pic4ImageView.image = nil
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
