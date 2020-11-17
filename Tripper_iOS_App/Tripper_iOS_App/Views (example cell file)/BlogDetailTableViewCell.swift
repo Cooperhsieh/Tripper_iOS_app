@@ -19,6 +19,9 @@ class BlogDetailTableViewCell: UITableViewCell {
     var blogId: String!
     
     var task: URLSessionTask?
+    lazy var tap: UITapGestureRecognizer =  {
+        return UITapGestureRecognizer(target: self, action: #selector(tapOnImageView))
+    }()
 //
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -30,13 +33,17 @@ class BlogDetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        pic1ImageView.addGestureRecognizer(tap)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func tapOnImageView(sender: UIImageView) {
+        EWImageAmplification.shared.scanBigImageWithImageView(currentImageView: pic1ImageView, alpha: 1)
     }
 
 }

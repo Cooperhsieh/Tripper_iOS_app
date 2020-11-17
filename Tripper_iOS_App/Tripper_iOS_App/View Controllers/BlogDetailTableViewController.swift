@@ -13,7 +13,7 @@ class BlogDetailTableViewController: UITableViewController {
     var blogId : String = ""
     let url = URL(string: baseURL + "/BlogServlet")
     var blogPic : BlogPic?
-    
+    var imageView : UIImageView?
     var blogPicDic = [String: BlogPic]()
 
 
@@ -165,13 +165,15 @@ class BlogDetailTableViewController: UITableViewController {
             }
             
         }
-        
-        
-
+//        imageView = cell.pic1ImageView
         return cell
     }
     
+//    @objc private func tapOnImageView() {
+//        EWImageAmplification.shared.scanBigImageWithImageView(currentImageView: pic1ImageView, alpha: 1)
+//    }
 
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

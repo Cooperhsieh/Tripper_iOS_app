@@ -12,6 +12,7 @@
 		110BA9D2255FF87200E6A33E /* BlogDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BA9D1255FF87200E6A33E /* BlogDetailTableViewCell.swift */; };
 		113B9FB4255EC81B004C544D /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B9FB3255EC81B004C544D /* BlogTableViewController.swift */; };
 		113B9FBC255EC837004C544D /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B9FBB255EC837004C544D /* BlogTableViewCell.swift */; };
+		11462D922564018B00FED453 /* EWImageAmplification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462D912564018B00FED453 /* EWImageAmplification.swift */; };
 		114A6633255EC46E007EF36C /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114A6632255EC46E007EF36C /* Blog.storyboard */; };
 		114E8112255545E400190D82 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E8111255545E300190D82 /* RegisterViewController.swift */; };
 		119E423E255AC35600C816CC /* StaffListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E423D255AC35600C816CC /* StaffListTableViewController.swift */; };
@@ -62,6 +63,7 @@
 		110BA9D1255FF87200E6A33E /* BlogDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailTableViewCell.swift; sourceTree = "<group>"; };
 		113B9FB3255EC81B004C544D /* BlogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		113B9FBB255EC837004C544D /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlogTableViewCell.swift; path = ../../BlogTableViewCell.swift; sourceTree = "<group>"; };
+		11462D912564018B00FED453 /* EWImageAmplification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EWImageAmplification.swift; sourceTree = "<group>"; };
 		114A6632255EC46E007EF36C /* Blog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		114E8111255545E300190D82 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		119E423D255AC35600C816CC /* StaffListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffListTableViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				DB8767992542F6B50064B3FF /* SceneDelegate.swift */,
 				DB87679D2542F6B50064B3FF /* Main.storyboard */,
 				114A6632255EC46E007EF36C /* Blog.storyboard */,
+				11462D912564018B00FED453 /* EWImageAmplification.swift */,
 				DB23572A254BBFFB00E23B05 /* Location.storyboard */,
 				DB23572F254BC03A00E23B05 /* StaffManage.storyboard */,
 				DB8767A22542F6B80064B3FF /* LaunchScreen.storyboard */,
@@ -362,6 +365,7 @@
 				11B88ECD2552B3F800AE7DA0 /* LoginViewController.swift in Sources */,
 				DB2C3804254FDFB80001AD30 /* UpdateLocationViewController.swift in Sources */,
 				DBE7E79725514F200021CFE9 /* AddNewLocationTableViewController.swift in Sources */,
+				11462D922564018B00FED453 /* EWImageAmplification.swift in Sources */,
 				DB5C6776254D3D48006CD6B3 /* LocationListTableViewController.swift in Sources */,
 				119E423E255AC35600C816CC /* StaffListTableViewController.swift in Sources */,
 				DB8768112543DD610064B3FF /* NetworkController.swift in Sources */,
