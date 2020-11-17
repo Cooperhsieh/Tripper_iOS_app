@@ -12,6 +12,11 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var magicButton: UIButton!
+    
+    
+    
+    
     var member : aAndP?
     let url = URL(string: baseURL + "/MemberServlet")
     var isAccess : Bool = false
@@ -86,6 +91,21 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     @IBAction func unwindSegueToLoginViewController(segue: UIStoryboardSegue) {
        
     }
+    
+    @IBAction func magicButton(_ sender: Any) {
+        
+        accountTextField.text = "zhitin"
+        passwordTextField.text = "password"
+        
+    }
+    
+    
+    
+    @IBAction func returnKeyboard(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    
   
     
     /*

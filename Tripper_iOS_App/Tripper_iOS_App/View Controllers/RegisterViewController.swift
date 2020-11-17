@@ -13,6 +13,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var password2TextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var magicButton: UIButton!
+    
+    
+    
     var member : Member?
     let url = URL(string: baseURL + "/MemberServlet")
     
@@ -74,6 +79,24 @@ class RegisterViewController: UIViewController {
             }
         }
     }
+    
+    
+    //按return 收回鍵盤
+    @IBAction func returnKeyboard(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    //神奇按鈕
+    @IBAction func magicButton(_ sender: Any) {
+        
+        accountTextField.text = "Peter"
+        passwordTextField.text = "passsword"
+        password2TextField.text = "passsword"
+        nameTextField.text = "Peter Pan"
+    }
+    
+    
+    
     
     /*
     // MARK: - Navigation

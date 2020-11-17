@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         //設定 Tabbar 選中顏色
-        UITabBar.appearance().tintColor = UIColor(red: 0, green: 142, blue: 143, alpha: 1)
+        
+     
+        
+        UITabBar.appearance().tintColor =  #colorLiteral(red: 0, green: 0.6745098039, blue: 0.7568627451, alpha: 1) //(0,172,193)
+            
+            
         
         return true
     }

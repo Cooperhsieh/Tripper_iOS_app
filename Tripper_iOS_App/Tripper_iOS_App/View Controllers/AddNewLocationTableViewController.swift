@@ -18,6 +18,10 @@ class AddNewLocationTableViewController: UITableViewController, UIImagePickerCon
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var magicButton: UIButton!
+    
+    
+    
     
     var locations: Location?
     var image: UIImage?
@@ -91,6 +95,25 @@ class AddNewLocationTableViewController: UITableViewController, UIImagePickerCon
             }
         }
     }
+    
+    @IBAction func magicButton(_ sender: Any) {
+        nameTextField.text = "雙心石滬"
+        addressTextField.text = "883 澎湖縣七美鄉"
+        cityTextField.text = "澎湖縣"
+        longtitudeTextField.text = "119.44577"
+        latitudeTextField.text = "23.219828"
+        infoTextView.text = "石滬是在潮間帶區域堆砌弧形石牆，利用海水漲潮時會淹覆石牆頂部並且帶來魚群，退潮時海水流走而魚群便會困在石牆內的一種捕魚陷阱，澎湖的石滬極可能是全世界密度最高、數量最多的地方。雙心石滬是目前保留最完整、造型最浪漫的石滬，若要觀看雙心石滬全貌，必須先確認每日的退潮時間，才能順利看到完整的雙心石滬。"
+        
+    }
+    
+    
+    @IBAction func returnKeyBoard(_ sender: UITextField) {
+        
+    }
+    
+    
+    
+    
 }
     
 
