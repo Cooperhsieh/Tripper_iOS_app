@@ -39,7 +39,7 @@ class StaffListTableViewController: UITableViewController {
         executeTask(url!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-
+                    
                     if let result = try? JSONDecoder().decode([Member].self, from: data!) {
                         self.members = result
                         DispatchQueue.main.async {
@@ -58,8 +58,6 @@ class StaffListTableViewController: UITableViewController {
                 print(error!.localizedDescription)
             }
         }
-        
-        
     }
 
     // MARK: - Table view data source

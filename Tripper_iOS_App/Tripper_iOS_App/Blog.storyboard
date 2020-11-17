@@ -11,11 +11,14 @@
         <scene sceneID="SVF-b1-TkR">
             <objects>
                 <navigationController id="l30-QQ-5Db" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Blog Manage" selectedImage="arrowshape.turn.up.backward.circle" catalog="system" id="mkh-Y1-Sd5"/>
+                    <tabBarItem key="tabBarItem" title="Blog Manage" image="info.circle" catalog="system" selectedImage="info.circle" id="mkh-Y1-Sd5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AVX-bB-6rG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="9jL-ej-9hX" kind="relationship" relationship="rootViewController" id="INc-aS-kRv"/>
@@ -277,8 +280,8 @@
     </scenes>
     <resources>
         <image name="SamplePic" width="1200" height="630"/>
-        <image name="arrowshape.turn.up.backward.circle" catalog="system" width="128" height="121"/>
         <image name="ic_point" width="24" height="36"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="shadow" width="380" height="44"/>
         <image name="tripperIcon" width="90" height="102"/>
         <systemColor name="systemBackgroundColor">

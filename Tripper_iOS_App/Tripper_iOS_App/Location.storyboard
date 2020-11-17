@@ -17,6 +17,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eb1-9X-Ejs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -103,6 +106,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="景點列表" id="pqf-br-fd9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GYo-cV-jiP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="upC-VW-9fN" kind="show" identifier="AddNewLoc" id="sjg-l6-lfx"/>
                             </connections>
@@ -628,6 +632,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="fEs-L3-2Pt">
                         <barButtonItem key="rightBarButtonItem" title="建立景點" id="Gkc-IR-y6n">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="Vg7-lR-GCR" kind="unwind" identifier="AddNewLoc" unwindAction="unwindToLocationListTableViewControllerWithSegue:" id="6Fv-Wq-aeS"/>
                             </connections>
