@@ -53,16 +53,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-Yt-r39">
-                                            <rect key="frame" x="196" y="12" width="188" height="43"/>
+                                            <rect key="frame" x="178" y="12" width="206" height="43"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM3-0w-mOJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="206" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtK-ZC-9a3">
-                                                    <rect key="frame" x="0.0" y="28.5" width="188" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtK-ZC-9a3">
+                                                    <rect key="frame" x="0.0" y="28.5" width="206" height="14.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14.5" id="KqF-Aw-JDO"/>
                                                     </constraints>
@@ -74,7 +74,7 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dk9-Yt-r39" firstAttribute="leading" secondItem="ZSb-J9-uKY" secondAttribute="trailing" constant="38" id="Ao1-Nr-wIA"/>
+                                        <constraint firstItem="dk9-Yt-r39" firstAttribute="leading" secondItem="ZSb-J9-uKY" secondAttribute="trailing" constant="20" id="Ao1-Nr-wIA"/>
                                         <constraint firstItem="dk9-Yt-r39" firstAttribute="top" secondItem="7Ve-vD-heE" secondAttribute="topMargin" constant="1" id="GgE-NX-MV0"/>
                                         <constraint firstItem="ZSb-J9-uKY" firstAttribute="leading" secondItem="7Ve-vD-heE" secondAttribute="leadingMargin" constant="8" id="MdY-3J-Oui"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="dk9-Yt-r39" secondAttribute="trailing" constant="10" id="SFV-6y-rwS"/>

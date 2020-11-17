@@ -441,12 +441,23 @@
                                                         <action selector="addLocPic:" destination="upC-VW-9fN" eventType="touchUpInside" id="vvd-CP-mzv"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO0-ER-jK4">
+                                                    <rect key="frame" x="369" y="0.0" width="30" height="123"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <connections>
+                                                        <action selector="magicButton:" destination="upC-VW-9fN" eventType="touchUpInside" id="FHK-XQ-UKd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="SO0-ER-jK4" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="top" id="23c-R7-r7u"/>
                                                 <constraint firstItem="oCz-Xc-9Lo" firstAttribute="leading" secondItem="hg4-96-aGF" secondAttribute="trailing" constant="30" id="3Fb-I7-oVc"/>
                                                 <constraint firstAttribute="bottom" secondItem="hg4-96-aGF" secondAttribute="bottom" constant="10" id="6ka-A1-HY7"/>
                                                 <constraint firstItem="oCz-Xc-9Lo" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="topMargin" constant="34" id="84b-Rr-TWb"/>
                                                 <constraint firstItem="hg4-96-aGF" firstAttribute="leading" secondItem="7gM-ax-PsM" secondAttribute="leading" constant="10" id="Cwx-v7-qxy"/>
+                                                <constraint firstAttribute="trailing" secondItem="SO0-ER-jK4" secondAttribute="trailing" constant="15" id="Hjh-sy-Ta7"/>
+                                                <constraint firstAttribute="bottom" secondItem="SO0-ER-jK4" secondAttribute="bottom" id="S98-jW-mrf"/>
+                                                <constraint firstItem="SO0-ER-jK4" firstAttribute="centerY" secondItem="7gM-ax-PsM" secondAttribute="centerY" id="UCD-R5-lS3"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oCz-Xc-9Lo" secondAttribute="bottom" constant="37" id="iuT-DX-N4n"/>
                                                 <constraint firstItem="hg4-96-aGF" firstAttribute="top" secondItem="7gM-ax-PsM" secondAttribute="top" constant="10" id="yG3-Wl-rZc"/>
                                             </constraints>
@@ -645,6 +656,7 @@
                         <outlet property="infoTextView" destination="dGZ-hR-ifg" id="eGp-Hj-3RC"/>
                         <outlet property="latitudeTextField" destination="n5u-qI-bL4" id="RTH-Nw-pGm"/>
                         <outlet property="longtitudeTextField" destination="EVB-n1-Rwg" id="cIv-Cf-Pw6"/>
+                        <outlet property="magicButton" destination="SO0-ER-jK4" id="hAf-Pi-ZJX"/>
                         <outlet property="nameTextField" destination="gUu-IR-eLs" id="SJ2-YG-nkk"/>
                     </connections>
                 </tableViewController>
