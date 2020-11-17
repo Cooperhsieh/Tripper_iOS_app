@@ -32,7 +32,7 @@ func getTransId () -> String {
     let date = Date()
     let dateFormatter = DateFormatter()
 
-    dateFormatter.dateFormat = "yyyyMMddHHmmssss"
+    dateFormatter.dateFormat = "yyyyMMddss " 
     dateFormatter.locale = Locale(identifier: "zh_Hant_TW")
     dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
 
