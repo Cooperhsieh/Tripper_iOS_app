@@ -101,6 +101,10 @@ class StaffListTableViewController: UITableViewController {
                                     self.members.remove(at: indexPath.row)
                                     DispatchQueue.main.async {
                                         tableView.deleteRows(at: [indexPath], with: .automatic)
+                                        let controller = UIAlertController(title: "後台帳號管理", message: "已將此帳號刪除", preferredStyle: .alert)
+                                        let okAction = UIAlertAction(title: "ok", style: .default)
+                                          controller.addAction(okAction)
+                                        self.present(controller, animated: true, completion: nil)
                                     }
                                 }
                             }
@@ -117,6 +121,7 @@ class StaffListTableViewController: UITableViewController {
         let swipeActions = UISwipeActionsConfiguration(actions: [delete])
         // true代表滑到底視同觸發第一個動作；false代表滑到底也不會觸發任何動作
         swipeActions.performsFirstActionWithFullSwipe = false
+            
         return swipeActions
         }else {
             return nil

@@ -149,7 +149,6 @@
 				DB8767992542F6B50064B3FF /* SceneDelegate.swift */,
 				DB87679D2542F6B50064B3FF /* Main.storyboard */,
 				114A6632255EC46E007EF36C /* Blog.storyboard */,
-				11462D912564018B00FED453 /* EWImageAmplification.swift */,
 				DB23572A254BBFFB00E23B05 /* Location.storyboard */,
 				DB23572F254BC03A00E23B05 /* StaffManage.storyboard */,
 				DB8767A22542F6B80064B3FF /* LaunchScreen.storyboard */,
@@ -214,6 +213,7 @@
 		DB87680E2543DD080064B3FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				11462D912564018B00FED453 /* EWImageAmplification.swift */,
 				DB5C6787254D5E85006CD6B3 /* Login.swift */,
 				DB5C678C254D6484006CD6B3 /* Location.swift */,
 				110BA9C1255ECE4200E6A33E /* Blog.swift */,

@@ -15,6 +15,8 @@ class BlogDetailTableViewController: UITableViewController {
     var blogPic : BlogPic?
     var imageView : UIImageView?
     var blogPicDic = [String: BlogPic]()
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var headerImageView: UIImageView!
     
 
 
@@ -26,12 +28,44 @@ class BlogDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let detail = blogDetail {
             blogId = detail.blogId
+            titleLabel.text = detail.tittleName
+            fetchHeaderImage(blogId: detail.blogId)
             
         }
-      
+        
         fetchBlogDetail()
+        
     }
 
+    @objc func fetchHeaderImage(blogId : String){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "getImage"
+        requestParam["id"] = blogId
+        requestParam["imageSize"] = self.view.frame.width
+        
+        executeTask(url!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let image = UIImage(data: data!){
+                        DispatchQueue.main.async {
+                            self.headerImageView.image = image
+                           
+                        }
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.headerImageView.image = UIImage(named: "noImage.jpg")
+                    }
+                }
+               
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    
     @objc func fetchBlogDetail(){
         var requestParam = [String: Any]()
         
@@ -50,7 +84,7 @@ class BlogDetailTableViewController: UITableViewController {
                         DispatchQueue.main.async {
                             /* 抓到資料後重刷table view */
                             self.tableView.reloadData()
-                            print("#############\(self.blogDetailList)")
+                            
                         }
                     }
                 }
