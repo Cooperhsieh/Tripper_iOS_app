@@ -103,7 +103,7 @@ class BlogDetailTableViewController: UITableViewController {
                     if let result = try? JSONDecoder().decode(BlogPic.self, from: data!) {
                        let blogPic = result
                         
-                        print("result", blog.locationId, indexPath, self.blogPic?.pic1?.count)
+                        //print("result", blog.locationId, indexPath, self.blogPic?.pic1?.count)
                         
                         DispatchQueue.main.async {
                             
@@ -116,7 +116,7 @@ class BlogDetailTableViewController: UITableViewController {
                                 
                                     cell.pic1ImageView.image = decodedimage
                                     cell.pic1ImageView.isHidden = false
-                                print("#############111111")
+                                //print("#############111111")
                             }else {
                                 cell.pic1ImageView.isHidden = true
                             }
@@ -127,7 +127,7 @@ class BlogDetailTableViewController: UITableViewController {
                                 
                                 cell.pic2ImageView.image = decodedimage
                                 cell.pic2ImageView.isHidden = false
-                                print("#############22222")
+                                //print("#############22222")
                             }else {
                                 cell.pic2ImageView.isHidden = true
                             }
@@ -137,7 +137,7 @@ class BlogDetailTableViewController: UITableViewController {
                                 let decodedimage = UIImage(data: decodedData! as Data)!
                                 cell.pic3ImageView.image = decodedimage
                                 cell.pic3ImageView.isHidden = false
-                                print("#############333333")
+                                //print("#############333333")
                             }else{
                                 cell.pic3ImageView.isHidden = true
                                 
@@ -149,7 +149,7 @@ class BlogDetailTableViewController: UITableViewController {
                                 let decodedimage = UIImage(data: decodedData! as Data)!
                                 cell.pic4ImageView.image = decodedimage
                                 cell.pic4ImageView.isHidden = false
-                                print("#############44444444")
+                                //print("#############44444444")
                             }else {
                                 cell.pic4ImageView.isHidden = true
                                
@@ -165,7 +165,7 @@ class BlogDetailTableViewController: UITableViewController {
             }
             
         }
-//        imageView = cell.pic1ImageView
+
         return cell
     }
     

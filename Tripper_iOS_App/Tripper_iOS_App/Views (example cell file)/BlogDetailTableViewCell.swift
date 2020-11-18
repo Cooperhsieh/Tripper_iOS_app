@@ -22,6 +22,10 @@ class BlogDetailTableViewCell: UITableViewCell {
     lazy var tap: UITapGestureRecognizer =  {
         return UITapGestureRecognizer(target: self, action: #selector(tapOnImageView))
     }()
+    
+    
+    
+    
 //
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -34,6 +38,7 @@ class BlogDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         pic1ImageView.addGestureRecognizer(tap)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,6 +49,9 @@ class BlogDetailTableViewCell: UITableViewCell {
     
     @objc func tapOnImageView(sender: UIImageView) {
         EWImageAmplification.shared.scanBigImageWithImageView(currentImageView: pic1ImageView, alpha: 1)
+
     }
+    
+    
 
 }
