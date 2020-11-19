@@ -13,6 +13,10 @@ class BlogTableViewController: UITableViewController {
     let url = URL(string: baseURL + "/ExploreServlet")
     let blogUrl = URL(string: baseURL + "/BlogServlet")
     let memberUrl = URL(string: baseURL + "/MemberServlet")
+    let fcmUrl = URL(string: baseURL + "/FCMServlet")
+    let tripMUrl = URL(string: baseURL + "/Trip_M_Servlet")
+    var recId  = 0
+    var blogName = ""
     
     @IBOutlet var blogTableView: UITableView!
     
@@ -34,7 +38,7 @@ class BlogTableViewController: UITableViewController {
     }
     
     @objc func fetchBlog() {
-        let requestParam = ["action" : "getAll"]
+        let requestParam = ["action" : "getAllIos"]
         executeTask(url!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -79,6 +83,9 @@ class BlogTableViewController: UITableViewController {
         userrequestParam["action"] = "getImage"
         userrequestParam["id"] = blog.userId
         userrequestParam["imageSize"] = cell.frame.width
+        
+        recId = Int(blog.userId) ?? -1
+        blogName = blog.tittleName
         
         var image: UIImage?
         var userImage : UIImage?
@@ -157,12 +164,16 @@ class BlogTableViewController: UITableViewController {
                                 if count != 0 {
                                     self.blogList.remove(at: indexPath.row)
                                     self.tripDataChange(blogId: blogId)
+                                    
                                     DispatchQueue.main.async {
                                         tableView.deleteRows(at: [indexPath], with: .automatic)
                                         let controller = UIAlertController(title: "Blog Manage", message: "已將此網誌下架！", preferredStyle: .alert)
                                         let okAction = UIAlertAction(title: "ok", style: .default)
                                           controller.addAction(okAction)
                                         self.present(controller, animated: true, completion: nil)
+                                        
+                                        let appMessage = AppMessages(msgType: "B", memberId: 99, msgTitle: "網誌下架通知", msgBody: "您的「\(self.blogName)」網誌因使用不當字眼，目前已下架，請重新審視。", msgStat: 0, sendId: 99, reciverId: self.recId)
+                                        self.sendMessage(appMessage: appMessage)
                                     }
                                     
                                 }
@@ -184,10 +195,10 @@ class BlogTableViewController: UITableViewController {
     
     func tripDataChange(blogId : String){
         var requestParam = [String: Any]()
-        requestParam["action"] = "Trip_M_Servlet"
+        requestParam["action"] = "updateTrip"
         requestParam["tripId"] = blogId
         requestParam["blogStatus"] = 0
-        executeTask(self.url!, requestParam) { (data, response, error) in
+        executeTask(self.tripMUrl!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
                     if let result = String(data: data!, encoding: .utf8) {
@@ -213,5 +224,27 @@ class BlogTableViewController: UITableViewController {
             let contorller = segue.destination as! BlogDetailTableViewController
             contorller.blogDetail = blog
         }
+    }
+    
+    func sendMessage (appMessage : AppMessages) {
+        var requestParam = [String: Any]()
+        requestParam["action"] = "sendMsg"
+        requestParam["message"] = try! String(data: JSONEncoder().encode(appMessage), encoding: .utf8)
+        executeTask(self.fcmUrl!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let result = String(data: data!, encoding: .utf8) {
+                        if let count = Int(result) {
+                            // 確定server端刪除資料後，才將client端資料刪除
+                            if count != 0 {
+                              print("已發送訊息")
+                            }
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+    }
     }
 }

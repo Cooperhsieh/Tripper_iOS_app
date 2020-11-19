@@ -7,7 +7,6 @@
 import UIKit
 
 var oldFrame: CGRect = CGRect()
-
 let EWidth = UIScreen.main.bounds.width
 let EHeight = UIScreen.main.bounds.height
 

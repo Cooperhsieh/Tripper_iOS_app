@@ -19,7 +19,6 @@ struct Explore : Codable {
 }
 
 struct BlogD : Codable {
-
     var locationId : String
     var locationName : String
     var blogNote : String?

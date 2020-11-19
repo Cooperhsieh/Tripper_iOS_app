@@ -17,7 +17,8 @@ struct Member: Codable {
     let account: String
     let password: String
     let nickName: String
-    let status : Int
+    let dateIos : String
+    let statusIos : Int
 }
 
 struct aAndP : Codable {
