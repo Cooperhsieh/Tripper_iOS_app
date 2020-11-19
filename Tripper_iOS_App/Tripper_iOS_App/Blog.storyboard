@@ -37,11 +37,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogTableViewCell" rowHeight="192" id="eyx-cu-Xqu" customClass="BlogTableViewCell" customModule="Tripper_iOS_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="192"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogTableViewCell" rowHeight="200" id="eyx-cu-Xqu" customClass="BlogTableViewCell" customModule="Tripper_iOS_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eyx-cu-Xqu" id="PZa-CZ-02m">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SamplePic" translatesAutoresizingMaskIntoConstraints="NO" id="TMx-2a-HhG">
@@ -68,7 +68,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI6-OU-JAw">
-                                            <rect key="frame" x="30" y="149" width="264" height="31.5"/>
+                                            <rect key="frame" x="30" y="141" width="264" height="47.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <color key="textColor" systemColor="systemBackgroundColor"/>
                                             <nil key="highlightedColor"/>
@@ -91,12 +91,9 @@
                                             <color key="textColor" systemColor="systemBackgroundColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvZ-gr-5ee">
-                                            <rect key="frame" x="275" y="161" width="142" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="142" id="gWX-8V-R5E"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvZ-gr-5ee">
+                                            <rect key="frame" x="275" y="146" width="139" height="40"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" systemColor="systemBackgroundColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -108,8 +105,9 @@
                                         <constraint firstItem="ZvZ-gr-5ee" firstAttribute="leading" secondItem="PZa-CZ-02m" secondAttribute="leadingMargin" constant="255" id="7uW-3S-QtK"/>
                                         <constraint firstItem="tI6-OU-JAw" firstAttribute="leading" secondItem="PZa-CZ-02m" secondAttribute="leadingMargin" constant="10" id="BV9-6V-XCN"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="tI6-OU-JAw" secondAttribute="trailing" constant="100" id="CL3-kZ-lbp"/>
-                                        <constraint firstItem="tI6-OU-JAw" firstAttribute="top" secondItem="PZa-CZ-02m" secondAttribute="topMargin" constant="138" id="CcR-DF-WDH"/>
+                                        <constraint firstItem="tI6-OU-JAw" firstAttribute="top" secondItem="PZa-CZ-02m" secondAttribute="topMargin" constant="130" id="CcR-DF-WDH"/>
                                         <constraint firstAttribute="trailing" secondItem="TMx-2a-HhG" secondAttribute="trailing" constant="8" id="Fc3-9D-99G"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZvZ-gr-5ee" secondAttribute="trailing" id="G5s-Qa-e9T"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tI6-OU-JAw" secondAttribute="bottom" constant="0.5" id="GTn-8C-gBK"/>
                                         <constraint firstItem="TMx-2a-HhG" firstAttribute="leading" secondItem="PZa-CZ-02m" secondAttribute="leading" constant="8" id="O2j-iZ-j9v"/>
                                         <constraint firstItem="PSf-h8-3Wc" firstAttribute="top" secondItem="PZa-CZ-02m" secondAttribute="topMargin" constant="18" id="S8v-7d-AOa"/>
@@ -119,7 +117,7 @@
                                         <constraint firstItem="PSf-h8-3Wc" firstAttribute="centerY" secondItem="dgp-lo-BfP" secondAttribute="centerY" id="aT5-7I-07X"/>
                                         <constraint firstAttribute="trailing" secondItem="sHQ-oM-sOm" secondAttribute="trailing" constant="8" id="fzG-nI-TTc"/>
                                         <constraint firstItem="dgp-lo-BfP" firstAttribute="top" secondItem="PZa-CZ-02m" secondAttribute="top" constant="15" id="rsd-kp-60Q"/>
-                                        <constraint firstItem="ZvZ-gr-5ee" firstAttribute="top" secondItem="PSf-h8-3Wc" secondAttribute="bottom" constant="110" id="rvw-RW-4Dn"/>
+                                        <constraint firstItem="ZvZ-gr-5ee" firstAttribute="top" secondItem="PSf-h8-3Wc" secondAttribute="bottom" constant="95" id="rvw-RW-4Dn"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PSf-h8-3Wc" secondAttribute="trailing" constant="100" id="u6J-9G-PKv"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -150,7 +148,6 @@
         <!--Blog Detail Table View Controller-->
         <scene sceneID="S0A-4j-12X">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oK0-GR-UWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="uNT-Ut-AVr" customClass="BlogDetailTableViewController" customModule="Tripper_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="246" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dm-Ou-J9G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -332,6 +329,7 @@
                         <outlet property="titleLabel" destination="AwZ-GQ-JIm" id="oWf-Dd-mon"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oK0-GR-UWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1489.8550724637682" y="709.82142857142856"/>
         </scene>
