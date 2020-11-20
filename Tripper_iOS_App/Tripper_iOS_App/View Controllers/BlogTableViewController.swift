@@ -133,10 +133,8 @@ class BlogTableViewController: UITableViewController {
         }
         cell.blogNameLabel.text = blog.tittleName
         cell.userNameLabel.text = blog.nickName
-        
         cell.dateLabel.text = "上傳日期：\(blog.dateTime)"
         
-       
         return cell
     }
     
