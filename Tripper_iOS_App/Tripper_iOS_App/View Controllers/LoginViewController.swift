@@ -28,7 +28,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         
         accountTextField.delegate = self
         passwordTextField.delegate = self
-//        passwordTextField.isSecureTextEntry = false
+        passwordTextField.isSecureTextEntry = false
         accountTextField.isSecureTextEntry = false
     }
     
@@ -36,13 +36,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         
      
     }
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if (textField == passwordTextField && !passwordTextField.isSecureTextEntry) {
-//            passwordTextField.isSecureTextEntry = true
-//        }
-//
-//        return true
-//        }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField == passwordTextField && !passwordTextField.isSecureTextEntry) {
+            passwordTextField.isSecureTextEntry = true
+        }
+        return true
+        }
     
     func authentication(account : String , password : String){
         member = aAndP(account: account, password: password)

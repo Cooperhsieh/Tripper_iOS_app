@@ -151,40 +151,61 @@ class BlogTableViewController: UITableViewController {
         
         // 左滑時顯示Delete按鈕
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, bool) in
-            var requestParam = [String: Any]()
-            requestParam["action"] = "blogDelete"
-            requestParam["blogId"] =  self.blogList[indexPath.row].blogId
-            let blogId = self.blogList[indexPath.row].blogId
-            executeTask(self.blogUrl!, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        if let result = String(data: data!, encoding: .utf8) {
-                            if let count = Int(result) {
-                                // 確定server端刪除資料後，才將client端資料刪除
-                                if count != 0 {
-                                    self.blogList.remove(at: indexPath.row)
-                                    self.tripDataChange(blogId: blogId)
-                                    
-                                    DispatchQueue.main.async {
-                                        tableView.deleteRows(at: [indexPath], with: .automatic)
-                                        let controller = UIAlertController(title: "Blog Manage", message: "已將此網誌下架！", preferredStyle: .alert)
-                                        let okAction = UIAlertAction(title: "ok", style: .default)
-                                          controller.addAction(okAction)
-                                        self.present(controller, animated: true, completion: nil)
+            
+            let alertController = UIAlertController(title: "Blog Manage", message: "輸入下架原因", preferredStyle: .alert)
+            alertController.addTextField {
+                /* textField代表系統建立的文字方塊 */
+                (textField) in
+                /* 設定文字方塊的提示文字 */
+                textField.placeholder = "輸入原因"
+            }
+            
+            let ok = UIAlertAction(title: "確定", style: .default) {
+                // textFields儲存alertController所有建立的文字方塊
+                (alertAction) in
+                var requestParam = [String: Any]()
+                requestParam["action"] = "blogDelete"
+                requestParam["blogId"] =  self.blogList[indexPath.row].blogId
+                let blogId = self.blogList[indexPath.row].blogId
+                executeTask(self.blogUrl!, requestParam) { (data, response, error) in
+                    if error == nil {
+                        if data != nil {
+                            if let result = String(data: data!, encoding: .utf8) {
+                                if let count = Int(result) {
+                                    // 確定server端刪除資料後，才將client端資料刪除
+                                    if count != 0 {
+                                        self.blogList.remove(at: indexPath.row)
+                                        self.tripDataChange(blogId: blogId)
                                         
-                                        let appMessage = AppMessages(msgType: "B", memberId: 99, msgTitle: "網誌下架通知", msgBody: "您的「\(self.blogName)」網誌因使用不當字眼，目前已下架，請重新審視。", msgStat: 0, sendId: 99, reciverId: self.recId)
-                                        self.sendMessage(appMessage: appMessage)
+                                        DispatchQueue.main.async {
+                                            tableView.deleteRows(at: [indexPath], with: .automatic)
+                                            
+                                            let appMessage = AppMessages(msgType: "B", memberId: 99, msgTitle: "網誌下架通知", msgBody: "您的「\(self.blogName)」網誌因包含不當內容，目前已下架，請重新審視 ", msgStat: 0, sendId: 99, reciverId: self.recId)
+                                            self.sendMessage(appMessage: appMessage)
+                                        }
+                                        
                                     }
-                                    
                                 }
                             }
                         }
+                    } else {
+                        print(error!.localizedDescription)
                     }
-                } else {
-                    print(error!.localizedDescription)
                 }
+                
             }
+            
+            let cancel = UIAlertAction(title: "取消", style: .cancel) {
+                (alertAction) in
+            }
+            alertController.addAction(ok)
+            alertController.addAction(cancel)
+            self.present(alertController, animated: true, completion: nil)
+            
         }
+        
+        
+        
         delete.backgroundColor = UIColor.red
         
         let swipeActions = UISwipeActionsConfiguration(actions: [delete])
@@ -206,6 +227,18 @@ class BlogTableViewController: UITableViewController {
                             // 確定server端刪除資料後，才將client端資料刪除
                             if count != 0 {
                               print("更改成功")
+                                DispatchQueue.main.async {
+                                let alertController = UIAlertController(title: "已將此網誌下架", message: "", preferredStyle: .alert)
+                                
+                                /* 建立標題為"Ok"，樣式為.default(預設樣式)的按鈕 */
+                                let ok = UIAlertAction(title: "Ok", style: .default) {
+                                    (alertAction) in
+                                    
+                                }
+                               
+                                alertController.addAction(ok)
+                                self.present(alertController, animated: true, completion:nil)
+                                }
                             }
                         }
                     }
