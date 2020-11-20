@@ -79,6 +79,11 @@ class StaffListTableViewController: UITableViewController {
         cell.nameLabel.text = member.nickName
         cell.idLabel.text = "員工編號：\(member.id)"
         cell.accountLabel.text = "帳號：\(member.account)"
+        cell.userImageView.image = UIImage(named: "employee")
+        cell.dateLabel.text = "創建日期：\(member.dateIos)"
+        if member.statusIos == 1 {
+            cell.userImageView.image = UIImage(named: "boss")
+        }
         
 
         return cell

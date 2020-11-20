@@ -106,17 +106,20 @@ class BlogDetailTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(BlogDetailTableViewCell.self)", for: indexPath) as! BlogDetailTableViewCell
         
+    
+        
         cell.task?.cancel()
         
         let blog = blogDetailList[indexPath.row]
         cell.spotNameLabel.text = blog.locationName
         cell.dateLabel.text = blog.s_Date
         if let blogInfo = blog.blogNote {
+            print(blogInfo)
             cell.spotInfoLabel.text = "文字敘述：\n\(blogInfo)"
         }else{
             cell.spotInfoLabel.text = "無文字說明"
         }
-    
+
   
         var requestParam = [String: Any]()
         requestParam["action"] = "getSpotImage"
@@ -127,7 +130,7 @@ class BlogDetailTableViewController: UITableViewController {
         cell.pic2ImageView.isHidden = true
         cell.pic3ImageView.isHidden = true
         cell.pic4ImageView.isHidden = true
-        
+//
 
         print("blogId",blog.blogId,"locationId",  blog.locationId, indexPath)
         cell.task = executeTask(url!, requestParam) { (data, response, error) in
@@ -141,15 +144,16 @@ class BlogDetailTableViewController: UITableViewController {
                         
                         print("result", blog.locationId, indexPath, self.blogPic?.pic1?.count)
                         
+                        
+
                         DispatchQueue.main.async {
                             
-
                             if let pic1 = blogPic.pic1 {
                                 print("indexPath pic1", indexPath)
 
                                 let decodedData = NSData(base64Encoded : pic1, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
-                                
+
                                     cell.pic1ImageView.image = decodedimage
                                     cell.pic1ImageView.isHidden = false
                                 print("#############111111")
@@ -157,18 +161,18 @@ class BlogDetailTableViewController: UITableViewController {
                                 cell.pic1ImageView.isHidden = false
                                 cell.pic1ImageView.image =  UIImage(named: "nopic")
                             }
-                        
+
                             if let pic2 = blogPic.pic2 {
                                 let decodedData = NSData(base64Encoded : pic2, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
-                                
+
                                 cell.pic2ImageView.image = decodedimage
                                 cell.pic2ImageView.isHidden = false
                                 print("#############22222")
                             }else {
                                 cell.pic2ImageView.isHidden = true
                             }
-                            
+
                             if let pic3 = blogPic.pic3 {
                                 let decodedData = NSData(base64Encoded : pic3, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
@@ -178,8 +182,8 @@ class BlogDetailTableViewController: UITableViewController {
                             }else{
                                 cell.pic3ImageView.isHidden = true
                             }
-                            
-                            
+
+
                             if let pic4 = blogPic.pic4 {
                                 let decodedData = NSData(base64Encoded : pic4, options: NSData.Base64DecodingOptions())
                                 let decodedimage = UIImage(data: decodedData! as Data)!
@@ -188,12 +192,12 @@ class BlogDetailTableViewController: UITableViewController {
                                 print("#############44444444")
                             }else {
                                 cell.pic4ImageView.isHidden = true
-                               
-                            }
-                            
 
-                        }
-                       
+                            }
+//
+//
+                       }
+//
                     }
                 }
             } else {

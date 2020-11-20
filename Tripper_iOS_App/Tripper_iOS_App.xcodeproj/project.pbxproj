@@ -15,6 +15,7 @@
 		11462D922564018B00FED453 /* EWImageAmplification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11462D912564018B00FED453 /* EWImageAmplification.swift */; };
 		114A6633255EC46E007EF36C /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114A6632255EC46E007EF36C /* Blog.storyboard */; };
 		114E8112255545E400190D82 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E8111255545E300190D82 /* RegisterViewController.swift */; };
+		116AF0602566AAA300C75B9A /* AppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AF05F2566AAA300C75B9A /* AppMessage.swift */; };
 		119E423E255AC35600C816CC /* StaffListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E423D255AC35600C816CC /* StaffListTableViewController.swift */; };
 		119E4246255B8E0900C816CC /* StaffListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E4245255B8E0900C816CC /* StaffListTableViewCell.swift */; };
 		11B88ECD2552B3F800AE7DA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B88ECC2552B3F800AE7DA0 /* LoginViewController.swift */; };
@@ -66,6 +67,7 @@
 		11462D912564018B00FED453 /* EWImageAmplification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EWImageAmplification.swift; sourceTree = "<group>"; };
 		114A6632255EC46E007EF36C /* Blog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		114E8111255545E300190D82 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		116AF05F2566AAA300C75B9A /* AppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMessage.swift; sourceTree = "<group>"; };
 		119E423D255AC35600C816CC /* StaffListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffListTableViewController.swift; sourceTree = "<group>"; };
 		119E4245255B8E0900C816CC /* StaffListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffListTableViewCell.swift; sourceTree = "<group>"; };
 		11B88ECC2552B3F800AE7DA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				DB5C6787254D5E85006CD6B3 /* Login.swift */,
 				DB5C678C254D6484006CD6B3 /* Location.swift */,
 				110BA9C1255ECE4200E6A33E /* Blog.swift */,
+				116AF05F2566AAA300C75B9A /* AppMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				DB8768112543DD610064B3FF /* NetworkController.swift in Sources */,
 				DB87679C2542F6B50064B3FF /* ViewController.swift in Sources */,
 				114E8112255545E400190D82 /* RegisterViewController.swift in Sources */,
+				116AF0602566AAA300C75B9A /* AppMessage.swift in Sources */,
 				119E4246255B8E0900C816CC /* StaffListTableViewCell.swift in Sources */,
 				DB5C678D254D6484006CD6B3 /* Location.swift in Sources */,
 				DB8767982542F6B50064B3FF /* AppDelegate.swift in Sources */,

@@ -40,7 +40,6 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         if (textField == passwordTextField && !passwordTextField.isSecureTextEntry) {
             passwordTextField.isSecureTextEntry = true
         }
-        
         return true
         }
     

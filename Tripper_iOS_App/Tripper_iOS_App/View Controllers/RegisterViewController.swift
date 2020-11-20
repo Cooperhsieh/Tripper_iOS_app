@@ -50,7 +50,7 @@ class RegisterViewController: UIViewController {
         }
         
         
-        member = Member(id : 0 ,account : account , password : password , nickName : name, status: 0)
+        member = Member(id : 0 ,account : account , password : password , nickName : name,dateIos: "", statusIos: 0)
         var requestParam = [String : String]()
         requestParam["action"] = "managerInsert"
         requestParam["member"] = try! String(data: JSONEncoder().encode(member), encoding: .utf8)

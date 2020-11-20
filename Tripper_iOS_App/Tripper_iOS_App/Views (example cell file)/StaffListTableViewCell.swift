@@ -11,6 +11,9 @@ class StaffListTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
+    
     
 
     override func awakeFromNib() {
