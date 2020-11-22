@@ -89,9 +89,9 @@ class RegisterViewController: UIViewController {
     //神奇按鈕
     @IBAction func magicButton(_ sender: Any) {
         
-        accountTextField.text = "Peter"
-        passwordTextField.text = "passsword"
-        password2TextField.text = "passsword"
+        accountTextField.text = "peter"
+        passwordTextField.text = "password"
+        password2TextField.text = "password"
         nameTextField.text = "Peter Pan"
     }
     

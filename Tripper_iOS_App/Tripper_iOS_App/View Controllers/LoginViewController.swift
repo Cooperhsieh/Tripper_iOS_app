@@ -21,11 +21,11 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     let url = URL(string: baseURL + "/MemberServlet")
     var isAccess : Bool = false
     let userDefault = UserDefaults.standard
+    var s2:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+                
         accountTextField.delegate = self
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = false
@@ -36,12 +36,40 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         
      
     }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (textField == passwordTextField && !passwordTextField.isSecureTextEntry) {
-            passwordTextField.isSecureTextEntry = true
+    
+    //每次開始輸入就將TextField初始化，並設定isSecureTextEntry = true啟用隱碼功能。
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+         
+            if (textField == passwordTextField) {
+                passwordTextField.text = ""
+                passwordTextField.becomeFirstResponder()
+                passwordTextField.isSecureTextEntry = true
+            }
         }
-        return true
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        var len = 0;
+        let n = ""
+        
+        if (textField == passwordTextField){
+            passwordTextField.isSecureTextEntry = false
+                    len = passwordTextField.text!.count
+                    
+                    if (len == 0){
+                        passwordTextField.text = ""
+                    }else{
+                        s2 = passwordTextField.text!
+                        let symbol2 = n.padding(toLength: len, withPad: "●", startingAt: 0)
+                        passwordTextField.text = symbol2
+                    }
+                }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
         }
+    
     
     func authentication(account : String , password : String){
         member = aAndP(account: account, password: password)
