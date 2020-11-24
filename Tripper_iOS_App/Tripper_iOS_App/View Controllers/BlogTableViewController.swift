@@ -84,8 +84,10 @@ class BlogTableViewController: UITableViewController {
         userrequestParam["id"] = blog.userId
         userrequestParam["imageSize"] = cell.frame.width
         
-        recId = Int(blog.userId) ?? -1
+        
         blogName = blog.tittleName
+        print("#################\(recId)")
+        
         
         var image: UIImage?
         var userImage : UIImage?
@@ -167,6 +169,7 @@ class BlogTableViewController: UITableViewController {
                 requestParam["action"] = "blogDelete"
                 requestParam["blogId"] =  self.blogList[indexPath.row].blogId
                 let blogId = self.blogList[indexPath.row].blogId
+                self.recId = Int(self.blogList[indexPath.row].userId) ?? -1
                 executeTask(self.blogUrl!, requestParam) { (data, response, error) in
                     if error == nil {
                         if data != nil {
@@ -181,6 +184,7 @@ class BlogTableViewController: UITableViewController {
                                             tableView.deleteRows(at: [indexPath], with: .automatic)
                                             
                                             let appMessage = AppMessages(msgType: "B", memberId: 99, msgTitle: "網誌下架通知", msgBody: "您的「\(self.blogName)」網誌因包含不當內容，目前已下架，請重新審視 ", msgStat: 0, sendId: 99, reciverId: self.recId)
+                                            print("#################\(self.recId)")
                                             self.sendMessage(appMessage: appMessage)
                                         }
                                         
